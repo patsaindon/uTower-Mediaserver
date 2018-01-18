@@ -1,9 +1,14 @@
 [all]
-192.168.88.129
-192.168.88.130
+#192.168.88.129 ansible_connection=ssh ansible_ssh_user=kodi ansible_ssh_pass=kodi
+#192.168.0.30 ansible_connection=ssh ansible_ssh_user=kodi ansible_ssh_pass=kodi
+192.168.88.130 ansible_connection=ssh ansible_ssh_user=user ansible_ssh_pass=Pps7308
+#192.168.0.10 ansible_connection=ssh ansible_ssh_user=user ansible_ssh_pass=Pps7308
 
 [kodi]
-192.168.88.129
+#192.168.88.129 ansible_connection=ssh ansible_ssh_user=kodi ansible_ssh_pass=kodi
+#192.168.0.30 ansible_connection=ssh ansible_ssh_user=kodi ansible_ssh_pass=kodi
 
 [uTower]
-192.168.88.130
+192.168.88.130 ansible_connection=ssh ansible_ssh_user=user ansible_ssh_pass=Pps7308
+#192.168.0.10 ansible_connection=ssh ansible_ssh_user=user ansible_ssh_pass=Pps7308
+

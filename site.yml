@@ -1,0 +1,27 @@
+# site.yml
+---
+- hosts: kodi
+  become: yes
+
+  pre_tasks:
+
+  roles:
+#    - { role: uTower.base, when: ntp_enabled }
+#    - { role: uTower.ntp, when: ntp_enabled }
+#    - { role: uTower.kodi_client, when: kodi_client_enabled }
+
+- hosts: uTower
+  become: yes
+
+  pre_tasks:
+
+  roles:
+     - role: uTower.ntp     
+     - role: uTower.disk
+     - role: uTower.mergerfs
+#    - { role: GR360RY.htpc-nas, when: htpc_nas_enabled }
+#    - { role: GR360RY.docker, when: docker_enabled }
+#    - { role: uTower.htpc-manager, when: htpc_manager_enabled }
+#    - { role: uTower.transmission, when: transmission_enabled }
+#    - { role: uTower.sickrage, when: sickrage_enabled }
+#    - { role: uTower.couchpotato, when: couchpotato_enabled }

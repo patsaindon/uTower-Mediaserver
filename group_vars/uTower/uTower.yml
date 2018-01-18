@@ -1,0 +1,26 @@
+---
+disk_additional_disks:
+ - disk: /dev/sdb
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/disk1
+   disable_periodic_fsck: false
+ - disk: /dev/sdc
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/disk2
+   disable_periodic_fsck: false
+ - disk: /dev/sdd
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/disk3
+   disable_periodic_fsck: false
+ - disk: /dev/sde
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/parity
+   disable_periodic_fsck: false
+
+additional_fs_utils:
+  - xfsprogs     # package for mkfs.xfs on RedHat / Ubuntu
+# - btrfs-progs  # package for mkfs.btrfs on CentOS / Debian
