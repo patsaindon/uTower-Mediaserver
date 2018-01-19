@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> d3addf3a3071c0be7a29b9ec825d3191e17c66ac
 # ansible-uTower-roles
 =======
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
