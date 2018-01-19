@@ -1,0 +1,9 @@
+---
+docker_containers: []
+# docker_containers:
+#   - name: couchpotato
+#   - name: couchpotato
+#     image: linuxserver/couchpotato
+#     published_ports: 5050:5050
+#     env:
+

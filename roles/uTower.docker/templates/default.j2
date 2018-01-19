@@ -1,0 +1,21 @@
+# Docker Upstart and SysVinit configuration file                                                    
+
+#
+# THIS FILE DOES NOT APPLY TO SYSTEMD
+#
+#   Please see the documentation for "systemd drop-ins":
+#   https://docs.docker.com/engine/articles/systemd/
+#
+
+# Customize location of Docker binary (especially for development testing).
+#DOCKERD="/usr/local/bin/dockerd"
+
+# Use DOCKER_OPTS to modify the daemon startup options.
+#DOCKER_OPTS="--dns 8.8.8.8 --dns 8.8.4.4"
+DOCKER_OPTS="{% if docker_bridge_ip is defined %}--bip={{ docker_bridge_ip }}{% endif %} {% if docker_container_ip is defined %}--fixed-cidr={{ docker_container_ip }}{% endif %} {% for dns in docker_dns %} --dns {{ dns }} {% endfor %} {% if docker_storage_driver is defined %}--storage-driver={{ docker_storage_driver }}{% endif %}"
+
+# If you need Docker to use an HTTP proxy, it can also be specified here.
+#export http_proxy="http://127.0.0.1:3128/"
+
+# This is also a handy place to tweak where Docker's temporary files go.
+#export TMPDIR="/mnt/bigdrive/docker-tmp"

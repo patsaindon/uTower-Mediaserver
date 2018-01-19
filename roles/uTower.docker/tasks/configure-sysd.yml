@@ -1,0 +1,13 @@
+---
+
+- name: create systemd path
+  file: path={{ docker_systemd_path }} state=directory mode=0755
+
+- name: create docker config
+  template: src=network.j2 dest={{ docker_systemd_path }}/{{ docker_systemd_conf }}
+  notify: 
+  - docker-stop-sysd
+  - docker-remove-bridge
+  - docker-reload-daemon
+  - docker-restart-sysd
+  - docker-start-sysd

@@ -21,7 +21,7 @@ htpc_media_music: music
 htpc_media_pictures: pictures
 htpc_downloads_tv: "{{ htpc_media_path }}/downloads/tv"
 htpc_downloads_movies: "{{ htpc_media_path }}/downloads/movies"
-htpc_downloads_incomplete: "{{ htpc_media_path }}/downloads/incomplete }}"
+htpc_downloads_incomplete: "{{ htpc_media_path }}/downloads/incomplete"
 
 # Helper variable. In use by other roles
 # Change the way different service are resolved in configuration files.

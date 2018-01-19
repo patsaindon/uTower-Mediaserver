@@ -1,0 +1,3 @@
+---
+    - name: Copy advancedsettings.xml
+      template: src=advancedsettings.xml dest=/opt/kodi/.kodi/userdata/ owner=root group=root

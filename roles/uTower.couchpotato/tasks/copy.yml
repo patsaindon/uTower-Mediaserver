@@ -1,0 +1,3 @@
+---
+    - name: Copy config.ini
+      template: src=config.ini dest=/opt/couchpotato owner=root group=root

@@ -2,11 +2,7 @@
 mergerfs_version: 2.23.1
 
 # Common mount point for server data
-<<<<<<< HEAD
 mount_point: /mnt/data
-=======
-mount_point: /mnt/storage
->>>>>>> 5edfe67d6298977a370823c6d6f36545cf0e1a02
 
 # List of Hard Drives
 # { name: /mnt/diskx, src: /dev/disk/by-id/... }

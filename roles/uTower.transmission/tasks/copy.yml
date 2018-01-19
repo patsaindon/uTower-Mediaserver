@@ -1,0 +1,3 @@
+---
+    - name: Copy settings.json
+      template: src=settings.json dest=/opt/transmission owner=root group=root
