@@ -23,6 +23,7 @@
 
     # Copy custom/custom.yml.sample to custom/custom.yml
     # Update variable values
+<<<<<<< HEAD
 #    - name: Load custom variables from custom.yml
 #      include_vars: group_vars/uTower/uTower.yml
 #      failed_when: false
@@ -36,6 +37,19 @@
 #     - role: uTower.docker
      - role: uTower.snapraid
 
+=======
+    - name: Load custom variables from custom.yml
+      include_vars: group_vars/uTower/uTower.yml
+      failed_when: false
+
+  roles:
+     - role: uTower.ntp
+     - role: uTower.disk
+     - role: uTower.mergerfs
+     - role: uTower.common
+     - role: uTower.nas
+     - role: uTower.docker
+>>>>>>> d3addf3a3071c0be7a29b9ec825d3191e17c66ac
 #     - role: uTower.kodi-headless
 #     - role: uTower.mariadb
 #     - role: uTower.transmission
