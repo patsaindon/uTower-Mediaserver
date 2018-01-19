@@ -1,0 +1,111 @@
+---
+# Copy custom/custom.yml.sample to custom/custom.yml
+# Modify lines were defaults that need to be changed.
+
+# Common mount point for server data
+mount_point: /mnt/data
+
+disk_additional_disks:
+ - disk: /dev/sdb
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/disk1
+   disable_periodic_fsck: false
+ - disk: /dev/sdc
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/disk2
+   disable_periodic_fsck: false
+ - disk: /dev/sdd
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/disk3
+   disable_periodic_fsck: false
+ - disk: /dev/sde
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/parity
+   disable_periodic_fsck: false
+
+additional_fs_utils:
+  - xfsprogs     # package for mkfs.xfs on RedHat / Ubuntu
+# - btrfs-progs  # package for mkfs.btrfs on CentOS / Debian
+
+# mergerfs role
+#--------------
+
+# htpc-common role
+# ----------------
+
+# htpc user
+htpc_user_username: user
+htpc_user_password: Pps7308
+htpc_user_group: user
+htpc_user_shell: /bin/bash
+htpc_user_sudo_access: yes
+
+# services
+htpc_ssh_service: yes
+htpc_create_media_folders: yes
+htpc_zeroconf: yes
+
+# downloads and media directories
+htpc_media_path: /mnt/data
+htpc_media_movies: movies
+htpc_media_tv: tv
+htpc_media_music: music
+htpc_media_pictures: pictures
+htpc_downloads_tv: "{{ htpc_media_path }}/downloads/tv"
+htpc_downloads_movies: "{{ htpc_media_path }}/downloads/movies"
+
+# Helper variable. In use by other roles
+# Change the way different service are resolved in configuration files.
+# Available values are zeroconf, hostname and staticip
+htpc_resolving: zeroconf
+
+# Helper variable. In use by other roles
+# When installed with docker role, make sure htpc user can access the docker daemon
+docker_group_members:
+  - "{{ htpc_user_username }}"
+
+# htpc-nas role
+# -------------
+
+# Enable NFS sharing ( Used by Kodi to share media )
+htpc_nas_nfs: no
+# Enable Windows Sharing
+htpc_nas_cifs: yes
+# Enable Mac Sharing
+htpc_nas_afp: no
+
+
+# sickrage role
+# -------------
+
+sickrage_path: /opt/sickrage
+
+
+# couchpotato role
+# ----------------
+
+couchpotato_path: /opt/couchpotato
+
+
+# htpc-manager role
+# -----------------
+
+htpc_manager_path: /opt/htpcmanager
+
+
+# transmission role
+# -----------------
+
+transmission_path: /opt/transmission
+
+
+# duckdns role
+# ------------
+
+duckdns_path: /opt/duckdns
+subdomains: "towerbox"
+token: "7997c64f-6d30-4028-b10d-69b19498cd74"

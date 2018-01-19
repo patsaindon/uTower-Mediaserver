@@ -1,0 +1,9 @@
+#MergerFS to install
+mergerfs_version: 2.23.1
+
+# Common mount point for server data
+mount_point: /mnt/data
+
+# List of Hard Drives
+# { name: /mnt/diskx, src: /dev/disk/by-id/... }
+disks: []
