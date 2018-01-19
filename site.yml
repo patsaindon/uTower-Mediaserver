@@ -16,14 +16,24 @@
   pre_tasks:
 
   roles:
+<<<<<<< HEAD
      - role: uTower.ntp
      - role: uTower.disk
      - role: uTower.mergerfs
      - role: uTower.common
      - role: uTower.nas
+=======
+     - role: uTower.ntp     
+     - role: uTower.disk
+     - role: uTower.mergerfs
+>>>>>>> 5edfe67d6298977a370823c6d6f36545cf0e1a02
 #    - { role: GR360RY.htpc-nas, when: htpc_nas_enabled }
 #    - { role: GR360RY.docker, when: docker_enabled }
 #    - { role: uTower.htpc-manager, when: htpc_manager_enabled }
 #    - { role: uTower.transmission, when: transmission_enabled }
 #    - { role: uTower.sickrage, when: sickrage_enabled }
+<<<<<<< HEAD
 #    - { role: uTower.couchpotato, when: couchpotato_enabled }
+=======
+#    - { role: uTower.couchpotato, when: couchpotato_enabled }
+>>>>>>> 5edfe67d6298977a370823c6d6f36545cf0e1a02

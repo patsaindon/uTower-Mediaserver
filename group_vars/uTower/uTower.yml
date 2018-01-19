@@ -1,10 +1,13 @@
 ---
+<<<<<<< HEAD
 # Copy custom/custom.yml.sample to custom/custom.yml
 # Modify lines were defaults that need to be changed.
 
 # Common mount point for server data
 mount_point: /mnt/data
 
+=======
+>>>>>>> 5edfe67d6298977a370823c6d6f36545cf0e1a02
 disk_additional_disks:
  - disk: /dev/sdb
    fstype: xfs
@@ -29,6 +32,7 @@ disk_additional_disks:
 
 additional_fs_utils:
   - xfsprogs     # package for mkfs.xfs on RedHat / Ubuntu
+<<<<<<< HEAD
 # - btrfs-progs  # package for mkfs.btrfs on CentOS / Debian
 
 # mergerfs role
@@ -109,3 +113,6 @@ transmission_path: /opt/transmission
 duckdns_path: /opt/duckdns
 subdomains: "towerbox"
 token: "7997c64f-6d30-4028-b10d-69b19498cd74"
+=======
+# - btrfs-progs  # package for mkfs.btrfs on CentOS / Debian
+>>>>>>> 5edfe67d6298977a370823c6d6f36545cf0e1a02
