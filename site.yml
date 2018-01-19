@@ -48,7 +48,7 @@
 #      failed_when: false
 
     - name: Load custom variables from custom.yml
-      include_vars: group_vars/uTower/uTower.yml
+      include_vars: group_vars/uTower/"{{ HOSTNAME }}"
       failed_when: false
 
   roles:
@@ -59,7 +59,7 @@
      - role: uTower.nas
      - role: uTower.docker
      - role: uTower.snapraid
-     
+
 #     - role: uTower.kodi-headless
 #     - role: uTower.mariadb
 #     - role: uTower.transmission
