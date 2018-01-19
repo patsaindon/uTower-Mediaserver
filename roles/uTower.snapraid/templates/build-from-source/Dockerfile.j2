@@ -1,0 +1,26 @@
+FROM debian:jessie
+MAINTAINER LinConf <git@linconf.com>
+ENV SNAPRAID_VERSION={{snapraid_build_target_version}}
+
+{% if snapraid_build_apt_proxy is defined and snapraid_build_apt_proxy %}
+RUN {{snapraid_build_apt_proxy}}
+  apt-get update && \
+{% else %}
+RUN apt-get update && \
+{% endif %}
+  apt-get upgrade -y && \
+  apt-get install -y \
+    autoconf \
+    gcc \
+    git \
+    make \
+    checkinstall && \
+  git clone --branch {{snapraid_build_target_version}} https://github.com/amadvance/snapraid.git && \
+  cd snapraid && \
+  autoreconf -i && \
+  ./configure && \
+  make -j8 && \
+  make -j8 check && \
+  checkinstall -Dy --install=no --nodoc && \
+  mkdir /artifact && \
+  cp /snapraid/*.deb /artifact/snapraid-{{snapraid_build_target_version}}.deb

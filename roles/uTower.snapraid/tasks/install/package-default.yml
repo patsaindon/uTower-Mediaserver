@@ -1,0 +1,6 @@
+---
+
+- name: install/package-default - Install Snapraid
+  package: 
+    name: '{{ snapraid_package_name }}'
+    state: installed

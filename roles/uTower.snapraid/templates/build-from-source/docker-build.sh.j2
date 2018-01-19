@@ -1,0 +1,12 @@
+#!/bin/bash
+docker_image_tag="ansible-snapraid"
+build_path="{{ snapraid_build_path }}"
+
+# Inspired by https://github.com/IronicBadger
+mkdir -p $build_path
+cd $build_path
+docker build -t $docker_image_tag .
+id=$(docker create --name build-snapraid $docker_image_tag)
+docker cp $id:/artifact/ .
+docker rm -v $id
+docker rmi $docker_image_tag

@@ -1,0 +1,8 @@
+---
+
+- name: create docker config
+  template: src=default.j2 dest=/etc/default/docker
+  notify: 
+    - docker-remove-bridge
+    - docker-restart
+    - docker-start

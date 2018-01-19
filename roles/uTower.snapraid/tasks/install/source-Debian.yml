@@ -1,0 +1,58 @@
+---
+
+- name: install/source-Debian - Install build dependencies
+  apt: 
+    name: '{{ item }}'
+    state: latest
+  with_flattened:
+    - '{{ snapraid_build_deps }}'
+
+- name: install/source-Debian - Clone SnapRAID repository
+  git: 
+    repo: '{{ snapraid_build_git_repo }}'
+    dest: '{{ snapraid_build_path }}'
+    version: '{{ snapraid_build_target_version }}'
+    update: yes
+  register: snapraid_clone_status
+  become_user: '{{ snapraid_build_user }}'
+
+- name: install/source-Debian - Generate SnapRAID configuration
+  command: 'autoreconf -i'
+  args:
+    chdir: '{{ snapraid_build_path }}'
+  register: snapraid_configure_status
+  when: snapraid_clone_status is defined and 
+        snapraid_clone_status.changed == True
+  become_user: '{{ snapraid_build_user }}'
+
+- name: install/source-Debian - Configure SnapRAID installation
+  shell: './configure'
+  args:
+    chdir: '{{ snapraid_build_path }}'
+  when: snapraid_configure_status is defined and 
+        snapraid_configure_status.changed
+
+- name: install/source-Debian - Make SnapRAID executables
+  shell: 'make'
+  args:
+    chdir: '{{ snapraid_build_path }}'
+  register: snapraid_make
+  when: snapraid_configure_status is defined and 
+        snapraid_configure_status.changed
+
+- name: install/source-Debian - Check for make errors
+  shell: 'make check | grep "Regression test completed with SUCCESS"'
+  args:
+    chdir: '{{ snapraid_build_path }}'
+  register: snapraid_make_check
+  when: snapraid_make is defined and 
+        snapraid_make.changed
+
+- name: install/source-Debian - Install SnapRAID
+  shell: 'make install'
+  args:
+    chdir: '{{ snapraid_build_path }}'
+  when: snapraid_make_check is defined and 
+        snapraid_make_check.changed and 
+        snapraid_install | bool
+

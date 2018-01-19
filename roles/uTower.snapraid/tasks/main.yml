@@ -1,0 +1,38 @@
+---
+#|  Install and configure SnapRAID
+
+- name: main - Include OS-Specific Variables
+  include_vars: '{{ item }}'
+  with_first_found:
+    - '{{ ansible_distribution }}.yml'
+    - '{{ ansible_os_family }}.yml'
+    - 'default.yml'
+  when: snapraid_enabled | bool
+  tags: [ 'snapraid', 'snapraid-install' ]
+
+- name: main - Install SnapRAID from source
+  include: '{{ found_item }}'
+  with_first_found:
+    - 'install/{{ snapraid_install_method }}-{{ ansible_distribution }}.yml'
+    - 'install/{{ snapraid_install_method }}-{{ ansible_os_family }}.yml'
+    - 'install/{{ snapraid_install_method }}-default.yml'
+  when: snapraid_enabled | bool
+  loop_control:
+    loop_var: found_item
+  tags: [ 'snapraid', 'snapraid-install' ]
+
+- name: main - Configure SnapRAID
+  include: '{{ found_item }}'
+  with_first_found:
+    - 'config/{{ ansible_distribution }}.yml'
+    - 'config/{{ ansible_os_family }}.yml'
+    - 'config/default.yml'
+  when: snapraid_enabled | bool
+  loop_control:
+    loop_var: found_item
+  tags: [ 'snapraid', 'snapraid-config' ]
+
+- name: main - Configure crontab
+  include: 'cron.yml'
+  when: snapraid_enabled | bool
+  tags: [ 'snapraid', 'snapraid-cron' ]

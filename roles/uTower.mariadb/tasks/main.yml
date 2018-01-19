@@ -1,0 +1,19 @@
+---
+- name: Create Mariadb container
+  docker_container:
+    name: mariadb
+    image: linuxserver/mariadb
+    network_mode: host
+    restart_policy: always
+    state: started
+    volumes:
+       - /opt/mariadb:/config
+    exposed_ports:
+      - 3306
+    published_ports:
+      - "3306:3306"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+      MYSQL_ROOT_PASSWORD: kodi

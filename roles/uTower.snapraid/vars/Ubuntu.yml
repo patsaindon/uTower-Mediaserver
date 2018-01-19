@@ -1,0 +1,20 @@
+---
+
+#|  Default OS Variables
+
+snapraid_package_name: 'snapraid'
+
+# If False and ansible_git_install==False, package installed from [universe]
+snapraid_use_ppa: True
+snapraid_ppa: 'ppa:tikhonov/snapraid'
+
+
+#| Build from Source Variables
+snapraid_build_deps:
+  - 'autoconf'
+  - 'build-essential'
+  - 'libtool'
+  - 'make'
+  - 'gcc'
+  - 'git'
+  - 'make'

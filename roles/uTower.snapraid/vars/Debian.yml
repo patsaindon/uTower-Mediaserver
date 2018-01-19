@@ -1,0 +1,16 @@
+---
+
+#|  Default OS Variables
+
+
+#| Build from Source Variables
+snapraid_build_deps:
+  - 'autoconf'
+  - 'build-essential'
+  - 'libtool'
+  - 'make'
+  - 'gcc'
+  - 'git'
+  - 'make'
+
+snapraid_build_apt_proxy: ''

@@ -1,0 +1,22 @@
+---
+- name: Create Transmission container
+  docker_container:
+    name: transmission
+    image: linuxserver/transmission
+    network_mode: host
+    restart_policy: always
+    state: started
+    volumes:
+       - /opt/transmission:/config
+       - /mnt/data/downloads:/downloads
+    exposed_ports:
+      - 9091
+      - 51413
+    published_ports:
+      - "9091:9091"
+      - "51413:51413/udp"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+- include_tasks: copy.yml

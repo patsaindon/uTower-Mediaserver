@@ -1,0 +1,28 @@
+---
+- name: install/docker-Debian - Create build directory
+  file:
+    dest: '{{ snapraid_build_path }}'
+    state: directory
+
+- name: install/docker-Debian - Setup build script
+  template:
+    src: 'build-from-source/docker-build.sh.j2'
+    dest: '{{ snapraid_build_path }}/docker-build.sh'
+    mode: '0775'
+
+- name: install/docker-Debian - Setup Dockerfile
+  template:
+    src: 'build-from-source/Dockerfile.j2'
+    dest: '{{ snapraid_build_path }}/Dockerfile'
+    mode: '0664'
+
+- name: install/docker-Debian - Build SnapRAID .deb
+  command: '{{ snapraid_build_path }}/docker-build.sh'
+  args:
+    chdir: '{{ snapraid_build_path }}'
+
+- name: install/docker-Debian - Install SnapRAID
+  apt: 
+    deb: '{{ snapraid_build_path }}/artifact/snapraid-{{snapraid_build_target_version}}.deb'
+  when: snapraid_install | bool
+

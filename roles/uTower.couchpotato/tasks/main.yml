@@ -1,0 +1,21 @@
+---
+- name: Create CouchPotato container
+  docker_container:
+    name: couchpotato
+    image: linuxserver/couchpotato
+    network_mode: host
+    restart_policy: always
+    state: started
+    volumes:
+       - /opt/couchpotato:/config
+       - /mnt/data/downloads/movies:/downloads
+       - /mnt/data/movies:/movies
+    exposed_ports:
+      - 5050
+    published_ports:
+      - "5050:5050"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+- include_tasks: copy.yml

@@ -1,0 +1,16 @@
+---
+
+- name: install/file-Debian - Copy package to host
+  copy: 
+    src: 'files/{{snapraid_install_file_name}}'
+    dest: '/tmp/{{snapraid_install_file_name}}'
+
+- name: install/file-Debian - Install SnapRAID
+  apt: 
+    deb: '/tmp/{{snapraid_install_file_name}}'
+  when: snapraid_install | bool
+
+- name: install/file-Debian - Cleanup package
+  file: 
+    path: '/tmp/{{snapraid_install_file_name}}'
+    state: absent

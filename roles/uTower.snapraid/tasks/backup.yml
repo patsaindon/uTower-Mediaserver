@@ -1,0 +1,34 @@
+---
+- name: install snapraid configuration
+    template: src=snapraid.conf.j2 dest=/etc/snapraid.conf owner=root group=root mode=0775
+
+# clone snapraid-runner
+- git:
+    name: clone snapraid-runner
+    repo: "https://github.com/Chronial/snapraid-runner.git"
+    dest: /opt/snapraid-runner
+    clone: yes
+    update: yes
+
+- name: install snapraid-runner configuration
+    template: src=snapraid-runner.conf.j2 dest=/etc/snapraid-runner.conf owner=root group=root mode=0775
+
+# add cron jobs for snapraid
+- cron:
+    name: snapraid
+    user: root
+    job: "{{ item.job }}"
+    name: "parity-{{ item.name }}"
+    minute: 0
+    hour: 2
+    weekday: "{{ item.weekday | default('*') }}"
+    day: "{{ item.dom | default('*') }}"
+  with_items:
+    - job: "{{ snapraid_cmd }}"
+      name: "daily"
+    - job: "{{ snapraid_cmd }}"
+      name: "weekly"
+      weekday: 0
+    - job: "{{ snapraid_cmd }}"
+      name: "monthly"
+      day: 1

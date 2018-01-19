@@ -1,0 +1,20 @@
+---
+- name: Create kodi-headless container
+  docker_container:
+    name: kodi-headless
+    image: linuxserver/kodi-headless
+    network_mode: host
+    restart_policy: always
+    state: started
+    volumes:
+       - /opt/kodi:/config
+    exposed_ports:
+      - 5050
+    published_ports:
+       - "8777:8080"
+       - "9777:9777/udp"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+- include_tasks: copy.yml
