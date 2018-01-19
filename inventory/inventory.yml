@@ -10,9 +10,16 @@
 #192.168.0.30 ansible_connection=ssh ansible_ssh_user=kodi ansible_ssh_pass=kodi
 
 [uTower.dev]
+<<<<<<< HEAD
 192.168.88.131 ansible_connection=ssh ansible_ssh_user=user ansible_ssh_pass=Pps7308
 #192.168.88.130 ansible_connection=ssh ansible_ssh_user=user ansible_ssh_pass=Pps7308
 
 [uTower]
 #192.168.0.10 ansible_connection=ssh ansible_ssh_user=user ansible_ssh_pass=Pps7308
+=======
+192.168.88.130 ansible_connection=ssh ansible_ssh_user=user ansible_ssh_pass=Pps7308
+>>>>>>> 07ae9f308b997c0cd50f359c0020d773f577c04e
 
+
+[uTower]
+#192.168.0.10 ansible_connection=ssh ansible_ssh_user=user ansible_ssh_pass=Pps7308
