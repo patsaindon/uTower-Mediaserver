@@ -122,7 +122,7 @@ Desktop Mode:
 ansible-playbook -i inventory/server-withclient -c local -K htpc-server.yml
 Server Mode:
 
-ansible-playbook -i inventory/server-headless -c local -K htpc-server.yml ansible-uTower-roles
+r-headless -c local -K htpc-server.yml ansible-uTower-roles
 =======
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
@@ -150,14 +150,8 @@ You’ll start by editing this README file to learn how to edit a file in Bitbuc
 Next, you’ll add a new file to this repository.
 
 1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+Branches**, and **Settings** pages.
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
-
----
 
 ## Clone a repository
 
@@ -169,4 +163,3 @@ Use these steps to clone from SourceTree, our client for using the repository co
 4. Open the directory you just created to see your repository’s files.
 
 Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
->>>>>>> 2a4ee5200f30941a8ff54d67c4f8da55b309bd61
