@@ -3,6 +3,6 @@
 
 htpc_nas_enabled: yes
 
-htpc_nas_nfs: yes
+htpc_nas_nfs: no
 htpc_nas_cifs: yes
-htpc_nas_afp: yes
+htpc_nas_afp: no

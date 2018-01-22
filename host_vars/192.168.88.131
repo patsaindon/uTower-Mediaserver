@@ -1,9 +1,0 @@
----
-roles:
-   - role: uTower.ntp
-   - role: uTower.disk
-   - role: uTower.mergerfs
-   - role: uTower.common
-   - role: uTower.nas
-   - role: uTower.docker
-   - role: uTower.snapraid

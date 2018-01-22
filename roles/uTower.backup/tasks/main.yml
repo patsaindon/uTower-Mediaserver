@@ -1,0 +1,24 @@
+---
+# tasks file for uTower.template
+
+# Backup mariadb kodi db
+#- name: Backup mariadb kodi db
+- script: DbBckp.sh
+
+#  command: docker exec mariadb /usr/bin/mysqldump -u root --password=kodi MyVideos107 > /opt/mariadb/MyVideos107.sql
+
+# Backup fstab
+- copy:
+    src: /etc/fstab
+    dest: /opt/fstab/fstab.bck
+    owner: user
+    group: user
+    mode: 0644
+
+# Backup Samba config
+- copy:
+    src: /etc/samba/smb.conf
+    dest: /opt/samba/smb.conf
+    owner: user
+    group: user
+    mode: 0644
