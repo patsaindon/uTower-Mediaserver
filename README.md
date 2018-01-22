@@ -1,6 +1,7 @@
 ## htpc-ansible
 
 HTPC Server Automation with [Kodi](http://kodi.tv), [Deluge](http://deluge-torrent.org/) (Bittorent), [SABnzbd](http://sabnzbd.org/) (Usenet), [Couchpotato](https://couchpota.to/), [Sickrage](https://sickrage.github.io/), [HTPC-Manager](https://github.com/Hellowlol/HTPC-Manager.git), [Tvheadend](https://tvheadend.org/) and [nzbToMedia](https://github.com/clinton-hall/nzbToMedia).
+* [Kodi](http://kodi.tv)
 
 ## Overview
 
