@@ -1,11 +1,11 @@
 ## htpc-ansible
 
-HTPC Server Automation with [MergerFS](https://github.com/trapexit/mergerfs/),[Docker](https://www.docker.com/),[SnapRAID](http://www.snapraid.it//),[Kodi](http://kodi.tv), [Transmission](https://hub.docker.com/r/linuxserver/transmission/) (Bittorent),  [Couchpotato](https://hub.docker.com/r/linuxserver/couchpotato/), [Sickrage](https://hub.docker.com/r/linuxserver/sickrage/), [HTPC-Manager](https://hub.docker.com/r/linuxserver/htpcmanager/),  and .
-* [Kodi](http://kodi.tv)
+HTPC Server Automation with [MergerFS](https://github.com/trapexit/mergerfs/),[Docker](https://www.docker.com/),[SnapRAID](http://www.snapraid.it//),[Kodi-headless](https://hub.docker.com/r/linuxserver/kodi-headless/), [Transmission](https://hub.docker.com/r/linuxserver/transmission/) (Bittorent),  [Couchpotato](https://hub.docker.com/r/linuxserver/couchpotato/), [Sickrage](https://hub.docker.com/r/linuxserver/sickrage/), [HTPC-Manager](https://hub.docker.com/r/linuxserver/htpcmanager/),and [MariaDB](https://hub.docker.com/r/linuxserver/mariadb/).
+
 
 ## Overview
 
-This project is designed to deploy and configure HTPC software on Ubuntu 14.04. It includes software roles, which can be set up on a single or multiple machines. All roles are customized with single configuration file, correctly deploying all the software.
+This project is designed to deploy and configure HTPC software on Ubuntu 16.04. It includes software roles, which can be set up on a single or multiple machines. All roles are customized with single configuration file, correctly deploying all the software.
 
 All software packages are integrated together: 
 
@@ -19,8 +19,8 @@ All software packages are integrated together:
 
 There are two modes of installation:
 
-* Ubuntu 14.04 Desktop - machine is connected to TV/Monitor. Kodi GUI will start on boot.
-* Ubuntu 14.04 Server - Kodi will run in docker container. 
+* Ubuntu 16.04 Desktop - machine is connected to TV/Monitor. Kodi GUI will start on boot.
+* Ubuntu 16.04 Server - Kodi will run in docker container. 
 
 In both modes media is shared over CIFS, NFS and AFP and Kodi uses MySQL.
 
