@@ -24,7 +24,7 @@
     # Copy custom/custom.yml.sample to custom/custom.yml
     # Update variable values
 #    - name: Load custom variables from custom.yml
-#      include_vars: group_vars/uTower/uTower.yml
+      include_vars: host_vars/192.168.88.131.yml
 #      failed_when: false
 
   roles:
