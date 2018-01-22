@@ -83,7 +83,7 @@ Default Credentials, Settings, Paths and URLs:
     - AFP and Samba read/write access will be available with `htpc/htpc` credentials
     - `/mnt/media` will be exported with NFS. NFS will "squash" all users to `htpc` uid
 
-* __Kodi__ ( Desktop Mode Only )
+* __Kodi-headless__ 
 
     - `htpc` user will be logged in automatically to Ubuntu desktop on boot
     - Kodi will start in full screen as part of Ubuntu Desktop
@@ -96,21 +96,10 @@ Default Credentials, Settings, Paths and URLs:
     - `movies` and `tv` folders will be configured with default scrappers in Kodi
     - Create hidden `/mnt/media/.kodi_client_setup` folder with `advancedsettings.xml` for configuring additional Kodi clients
 
-* __Deluge__
+* __Transmission__
     
-    - Deluge-Web Daemon will be configured to listen on port __8112__
-    - Deluge Daemon will be configured to listen on port __58846__
-    - Default Deluge Web password will be set to `deluge`
-    - `tv` and `movie` labels will be configured.
-    - `nzbtomedia` postprocessing scripts will be configured for each label
-
-* __Sabnzbd__
-
-    - Sabnzbdplus will be configured to listen on port __9000__
-    - Usenet setup will remain to be completed through configuration wizard
-    - `movies` and `tv` categories will be configured
-    - `nzbtomedia` postprocessing scripts will be configured for each category
-
+    - Transmission Daemon will be configured to listen on port __9091__
+    - Transmission Web password will be set to ``
 
 * __Sickrage__
 
@@ -149,7 +138,7 @@ sudo apt-get -y install ansible git
 ### Clone the repository
 
 ```
-git clone https://github.com/GR360RY/htpc-ansible.git --recursive
+git clone https://github.com/patsaindon/ansible-uTower-roles.git --recursive
 cd htpc-ansible
 ```
 
@@ -178,67 +167,4 @@ ansible-playbook -i inventory/server-headless -c local -K htpc-server.yml
 ```
 
 
-## Development and Testing with Vagrant
 
-If you want to test out the configuration in VirtualMachine or contribute to htpc-ansible development, install requirements and follow the below guide:
-
-### Requirements
-
-* Install [Vagrant](http://www.vagrantup.com/)
-* Install [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-* Install [Ansible](http://docs.ansible.com/intro_installation.html)
-
-### Deployment
-
-Both __Server__ and __Desktop__ modes can be tested in Vagrant. Vagrantfile presents multimachine environment were only __Server__ VM will be started by default. To test __Desktop__ mode, run `vagrant up fullclient`.
-
-```
- ~/dev/htpc-ansible ⮀ ⭠ master± ⮀ vagrant status
-Current machine states:
-
-headless                  not created (virtualbox)
-fullclient                not created (virtualbox)
-
-This environment represents multiple VMs. The VMs are all listed
-above with their current state. For more information about a specific
-VM, run `vagrant status NAME`.
-```
-
-* Start the VM
-
-```
-# Server
-vagrant up headless --no-provision
-
-#Desktop
-vagrant up fullclient --no-provision
-```
-
-* Snapshot the machine.
-
-```
-vagrant snapshot save before_provisioning
-```
-
-* Deploying htpc-ansible
-
-```
-vagrant provision
-```
-
-* Reverting snapshot
-
-In case you want to redeploy from scratch - simply revert the snapshot back to
-the machine with desktop installed.
-
-```
-vagrant snapshot restore before_provisioning
-```
-
-#### Testing and configuring WEB services
-
-Vagrant boxes are configured to have bridged eth1 interface.
-All the web services can be tested and configured as following:
-
-* Server Mode [http://htpc-server-vm.local/](http://htpc-server-vm.local/)
-* Desktop Mode [http://htpc-vm.local/](http://htpc-vm.local/)
