@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-role-htpc-common
+    - ansible-role-uTower-common

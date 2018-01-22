@@ -8,15 +8,15 @@
     apt: name=nfs-kernel-server state=installed update_cache=yes cache_valid_time=3600
 
   - name: Configure NFS shares in /etc/exports
-    lineinfile: dest=/etc/exports regexp='^{{ htpc_media_path }}' line='{{ htpc_media_path }} *(rw,insecure,all_squash,anonuid={{ htpc_user_uid }},anongid={{ htpc_user_gid }})'
-    when: htpc_nas_nfs
+    lineinfile: dest=/etc/exports regexp='^{{ uTower_media_path }}' line='{{ uTower_media_path }} *(rw,insecure,all_squash,anonuid={{ uTower_user_uid }},anongid={{ uTower_user_gid }})'
+    when: uTower_nas_nfs
     notify:
       - update nfs exports
 
   - name: Make sure NFS server is started on boot
     service: name=nfs-kernel-server state=started enabled=yes
 
-  when: htpc_nas_nfs
+  when: uTower_nas_nfs
   tags:
     - nfs
 
@@ -35,7 +35,7 @@
   - name: Make sure SAMBA server is started on boot
     service: name=smbd state=started enabled=yes
 
-  when: htpc_nas_cifs
+  when: uTower_nas_cifs
   tags:
     - cifs
 
@@ -69,6 +69,6 @@
   - name: Enable Avahi Service
     service: name=avahi-daemon state=started enabled=yes
 
-  when: htpc_nas_afp
+  when: uTower_nas_afp
   tags:
     - afp

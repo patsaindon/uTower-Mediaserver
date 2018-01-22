@@ -1,8 +1,8 @@
-htpc-nas
+uTower-nas
 ===========
-[![Build Status](https://travis-ci.org/GR360RY/ansible-role-htpc-nas.svg?branch=master)](https://travis-ci.org/GR360RY/ansible-role-htpc-nas) [![Galaxy](http://img.shields.io/badge/galaxy-GR360RY.htpc--nas-green.svg)](https://galaxy.ansible.com/GR360RY/htpc-nas/)
+[![Build Status](https://travis-ci.org/GR360RY/ansible-role-uTower-nas.svg?branch=master)](https://travis-ci.org/GR360RY/ansible-role-uTower-nas) [![Galaxy](http://img.shields.io/badge/galaxy-GR360RY.uTower--nas-green.svg)](https://galaxy.ansible.com/GR360RY/uTower-nas/)
 
-An Ansible role to setup and configure NAS functionality ( NFS, CIFS and AFP ) for HTPC Server under Ubuntu.
+An Ansible role to setup and configure NAS functionality ( NFS, CIFS and AFP ) for uTower Server under Ubuntu.
 
 Requirements
 ------------
@@ -13,10 +13,10 @@ Make sure to download roles specified in **Dependencies** section if role instal
 Overview
 --------
 
-List of tasks that will be performed under `htpc-nas` role:
+List of tasks that will be performed under `uTower-nas` role:
 
-1. Configure NFS Server. Squash all users to `htpc_user_username` uid
-2. Configure SAMBA Server. Create `htpc_user_username` samba identified by `htpc_user_password`
+1. Configure NFS Server. Squash all users to `uTower_user_username` uid
+2. Configure SAMBA Server. Create `uTower_user_username` samba identified by `uTower_user_password`
 3. Configure AFP ( Netatalk ) server for sharing data with Macs.
 
 Folders layout if used with default variable values:
@@ -37,49 +37,49 @@ Role Variables
 
 ```
 ---
-# defaults file for htpc-nas
+# defaults file for uTower-nas
 
-htpc_nas_enabled: yes
+uTower_nas_enabled: yes
 
-htpc_nas_nfs: yes
-htpc_nas_cifs: yes
-htpc_nas_afp: yes
+uTower_nas_nfs: yes
+uTower_nas_cifs: yes
+uTower_nas_afp: yes
 ```
 
 Dependencies
 ------------
 
-* `GR360RY.htpc-common` role. Creates htpc user and media folders
+* `GR360RY.uTower-common` role. Creates uTower user and media folders
 
 ```
-# defaults file for htpc-common
+# defaults file for uTower-common
 
-htpc_user_username: htpc
-htpc_user_password: htpc
-htpc_user_group: htpc
-htpc_user_shell: /bin/bash
-htpc_user_sudo_access: yes
-htpc_ssh_service: yes
-htpc_create_media_folders: yes
-htpc_zeroconf: yes
-htpc_media_path: /mnt/media
-htpc_media_movies: movies
-htpc_media_tv: tv
-htpc_media_music: music
-htpc_media_pictures: pictures
-htpc_downloads_complete: "{{ htpc_media_path }}/downloads/complete"
-htpc_downloads_incomplete: "{{ htpc_media_path }}/downloads/incomplete"
+uTower_user_username: uTower
+uTower_user_password: uTower
+uTower_user_group: uTower
+uTower_user_shell: /bin/bash
+uTower_user_sudo_access: yes
+uTower_ssh_service: yes
+uTower_create_media_folders: yes
+uTower_zeroconf: yes
+uTower_media_path: /mnt/media
+uTower_media_movies: movies
+uTower_media_tv: tv
+uTower_media_music: music
+uTower_media_pictures: pictures
+uTower_downloads_complete: "{{ uTower_media_path }}/downloads/complete"
+uTower_downloads_incomplete: "{{ uTower_media_path }}/downloads/incomplete"
 ```
 
-HTPC-Ansible Project
+uTower-Ansible Project
 --------------------
 
-This role is part of HTPC-Ansible project that includes additional roles for building Ubuntu Based HTPC Server.
+This role is part of uTower-Ansible project that includes additional roles for building Ubuntu Based uTower Server.
 
 Complete list of Ansible Galaxy roles is below:
 
-- [`GR360RY.htpc-common`](https://galaxy.ansible.com/GR360RY/htpc-common) - Create htpc user and media folders
-- [`GR360RY.htpc-nas`](https://galaxy.ansible.com/GR360RY/htpc-nas) - Configure NAS ( NFS, CIFS and AFP )
+- [`GR360RY.uTower-common`](https://galaxy.ansible.com/GR360RY/uTower-common) - Create uTower user and media folders
+- [`GR360RY.uTower-nas`](https://galaxy.ansible.com/GR360RY/uTower-nas) - Configure NAS ( NFS, CIFS and AFP )
 - [`GR360RY.kodi-client`](https://galaxy.ansible.com/GR360RY/kodi-client) - Install Kodi Media Player
 - [`GR360RY.kodi-mysql`](https://galaxy.ansible.com/GR360RY/kodi-mysql) - Install MySQL Backend for Kodi
 - [`GR360RY.deluge`](https://galaxy.ansible.com/GR360RY/deluge) - Install Deluge Bittornet Client
@@ -87,9 +87,9 @@ Complete list of Ansible Galaxy roles is below:
 - [`GR360RY.nzbtomedia`](https://galaxy.ansible.com/GR360RY/nzbtomedia) - Install NZBtoMedia Postprocessing
 - [`GR360RY.sickrage`](https://galaxy.ansible.com/GR360RY/sickrage) - Install SickRage
 - [`GR360RY.couchpotato`](https://galaxy.ansible.com/GR360RY/couchpotato) - Install CouchPotato
-- [`GR360RY.htpc-manager`](https://galaxy.ansible.com/GR360RY/htpc-manager) - Install HTPCManager
+- [`GR360RY.uTower-manager`](https://galaxy.ansible.com/GR360RY/uTower-manager) - Install uTowerManager
 
-Additional Info is available at [www.htpc-ansible.org](http://www.htpc-ansible.org)
+Additional Info is available at [www.uTower-ansible.org](http://www.uTower-ansible.org)
 
 License
 -------

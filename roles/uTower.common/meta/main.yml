@@ -1,6 +1,6 @@
 galaxy_info:
   author: Gregory Shulov
-  description: An ansible role to perform common tasks on HTPC
+  description: An ansible role to perform common tasks on uTower
   license: BSD
   
   min_ansible_version: 2.0
@@ -11,7 +11,7 @@ galaxy_info:
       - trusty
   
   galaxy_tags:
-    - htpc
+    - uTower
     - system
 
 dependencies: []

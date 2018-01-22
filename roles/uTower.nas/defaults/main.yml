@@ -1,8 +1,8 @@
 ---
-# defaults file for htpc-nas
+# defaults file for uTower-nas
 
-htpc_nas_enabled: yes
+uTower_nas_enabled: yes
 
-htpc_nas_nfs: no
-htpc_nas_cifs: yes
-htpc_nas_afp: no
+uTower_nas_nfs: no
+uTower_nas_cifs: yes
+uTower_nas_afp: no

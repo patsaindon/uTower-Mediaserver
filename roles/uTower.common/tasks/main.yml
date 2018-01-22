@@ -11,71 +11,71 @@
     service: name=ssh state=started enabled=yes
 
   tags: ssh
-  when: htpc_ssh_service
+  when: uTower_ssh_service
 
-# BLOCK: Create htpc group and user, enable sudo access
+# BLOCK: Create uTower group and user, enable sudo access
 - block:
 
-  - name: Create htpc group
-    group: name={{ htpc_user_group }} state=present
+  - name: Create uTower group
+    group: name={{ uTower_user_group }} state=present
 
-  - name: Generate htpc user password
-    command: /usr/bin/openssl passwd -salt random_salt -1 {{ htpc_user_password }}
-    register: htpc_user_generated_password
+  - name: Generate uTower user password
+    command: /usr/bin/openssl passwd -salt random_salt -1 {{ uTower_user_password }}
+    register: uTower_user_generated_password
     changed_when: false
 
-  - name: Create htpc user
+  - name: Create uTower user
     user:
-      name={{ htpc_user_username }}
-      password={{ htpc_user_generated_password.stdout }}
-      group={{ htpc_user_group }}
+      name={{ uTower_user_username }}
+      password={{ uTower_user_generated_password.stdout }}
+      group={{ uTower_user_group }}
       update_password=on_create
       state=present
       createhome=yes
-      shell={{ htpc_user_shell }}
+      shell={{ uTower_user_shell }}
       groups=adm,cdrom,dip,plugdev
       append=yes
-    register: htpc_user_verify_user
+    register: uTower_user_verify_user
 
-  - name: Set Fact "htpc_user_uid"
-    set_fact: htpc_user_uid={{ htpc_user_verify_user.uid }}
+  - name: Set Fact "uTower_user_uid"
+    set_fact: uTower_user_uid={{ uTower_user_verify_user.uid }}
 
-  - name: Set Fact "htpc_user_gid"
-    set_fact: htpc_user_gid={{ htpc_user_verify_user.group }}
+  - name: Set Fact "uTower_user_gid"
+    set_fact: uTower_user_gid={{ uTower_user_verify_user.group }}
 
-  - name: Enable sudo for htpc user
+  - name: Enable sudo for uTower user
     user:
-      name={{ htpc_user_username }}
+      name={{ uTower_user_username }}
       groups=sudo
       append=yes
-    when: htpc_user_sudo_access
+    when: uTower_user_sudo_access
 
   tags:
     - user
 
 # Create media folders
 - name: Create Media Folders
-  file: path={{ item }} state=directory owner={{ htpc_user_username }} group={{ htpc_user_group }} mode=0755 recurse=yes
+  file: path={{ item }} state=directory owner={{ uTower_user_username }} group={{ uTower_user_group }} mode=0755 recurse=yes
   with_items:
-    - "{{ htpc_media_path }}/{{ htpc_media_movies }}"
-    - "{{ htpc_media_path }}/{{ htpc_media_tv }}"
-    - "{{ htpc_media_path }}/{{ htpc_media_music }}"
-    - "{{ htpc_media_path }}/{{ htpc_media_pictures }}"
-  when: htpc_create_media_folders
+    - "{{ uTower_media_path }}/{{ uTower_media_movies }}"
+    - "{{ uTower_media_path }}/{{ uTower_media_tv }}"
+    - "{{ uTower_media_path }}/{{ uTower_media_music }}"
+    - "{{ uTower_media_path }}/{{ uTower_media_pictures }}"
+  when: uTower_create_media_folders
   tags:
     - media
 
 - name: Create Downloads Folders
-  file: path={{ item }} state=directory owner={{ htpc_user_username }} group={{ htpc_user_group }} mode=0755 recurse=yes
+  file: path={{ item }} state=directory owner={{ uTower_user_username }} group={{ uTower_user_group }} mode=0755 recurse=yes
   with_items:
-    - "{{ htpc_downloads_tv }}"
-    - "{{ htpc_downloads_movies }}"
-    - "{{ htpc_downloads_incomplete }}"
+    - "{{ uTower_downloads_tv }}"
+    - "{{ uTower_downloads_movies }}"
+    - "{{ uTower_downloads_incomplete }}"
 
 - name: Create Processing Folders
-  file: path={{ item }} state=directory owner={{ htpc_user_username }} group={{ htpc_user_group }} mode=0755 recurse=yes
+  file: path={{ item }} state=directory owner={{ uTower_user_username }} group={{ uTower_user_group }} mode=0755 recurse=yes
   with_items:
-    - "{{ htpc_downloads_incomplete }}"
+    - "{{ uTower_downloads_incomplete }}"
 
 # BLOCK: Configure avahi and avahi alias
 - block:
@@ -96,4 +96,4 @@
     service: name=avahi-daemon state=started enabled=yes
 
   tags: avahi
-  when: htpc_zeroconf
+  when: uTower_zeroconf

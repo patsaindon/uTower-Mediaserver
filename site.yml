@@ -66,9 +66,9 @@
 #     - role: uTower.couchpotato
 #     - role: uTower.sickrage
 
-#    - { role: GR360RY.htpc-nas, when: htpc_nas_enabled }
+#    - { role: GR360RY.uTower-nas, when: uTower_nas_enabled }
 #    - { role: GR360RY.docker, when: docker_enabled }
-#    - { role: uTower.htpc-manager, when: htpc_manager_enabled }
+#    - { role: uTower.uTower-manager, when: uTower_manager_enabled }
 #    - { role: uTower.transmission, when: transmission_enabled }
 #    - { role: uTower.sickrage, when: sickrage_enabled }
 #    - { role: uTower.couchpotato, when: couchpotato_enabled }

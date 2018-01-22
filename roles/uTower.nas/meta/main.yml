@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Gregory Shulov
-  description: Share HTPC Media Folders over NFS, Cifs and AFP
+  description: Share uTower Media Folders over NFS, Cifs and AFP
   license: BSD
   min_ansible_version: 2.0
   platforms:
@@ -9,7 +9,7 @@ galaxy_info:
     versions:
       - trusty
   galaxy_tags:
-    - htpc
+    - uTower
     - system
 dependencies:
 - uTower.common
