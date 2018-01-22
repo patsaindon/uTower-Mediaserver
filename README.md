@@ -20,11 +20,8 @@ All software packages are integrated together:
 There are two modes of installation:
 
 * Ubuntu 16.04 Desktop - machine is connected to TV/Monitor. Kodi GUI will start on boot.
-<<<<<<< HEAD
-* Ubuntu 16.04 Server - Kodi will run in docker container.
-=======
 * Ubuntu 16.04 Server - Kodi will run in docker container. 
->>>>>>> 394b8ad6c09e1fe1f6c49e7f507c46f7e54fd7e8
+
 
 In both modes media is shared over CIFS, NFS and AFP and Kodi uses MySQL.
 
@@ -87,11 +84,8 @@ Default Credentials, Settings, Paths and URLs:
     - AFP and Samba read/write access will be available with `htpc/htpc` credentials
     - `/mnt/media` will be exported with NFS. NFS will "squash" all users to `htpc` uid
 
-<<<<<<< HEAD
+
 * __Kodi-headless__
-=======
-* __Kodi-headless__ 
->>>>>>> 394b8ad6c09e1fe1f6c49e7f507c46f7e54fd7e8
 
     - `htpc` user will be logged in automatically to Ubuntu desktop on boot
     - Kodi will start in full screen as part of Ubuntu Desktop
@@ -105,11 +99,7 @@ Default Credentials, Settings, Paths and URLs:
     - Create hidden `/mnt/media/.kodi_client_setup` folder with `advancedsettings.xml` for configuring additional Kodi clients
 
 * __Transmission__
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 394b8ad6c09e1fe1f6c49e7f507c46f7e54fd7e8
     - Transmission Daemon will be configured to listen on port __9091__
     - Transmission Web password will be set to ``
 
@@ -176,10 +166,4 @@ __Server Mode:__
 
 ```
 ansible-playbook -i inventory/server-headless -c local -K htpc-server.yml
-```
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> 394b8ad6c09e1fe1f6c49e7f507c46f7e54fd7e8
