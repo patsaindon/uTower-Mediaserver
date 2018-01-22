@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 =======
 htpc-ansible
 HTPC Server Automation with Kodi, Deluge (Bittorent), SABnzbd (Usenet), Couchpotato, Sickrage, HTPC-Manager, Tvheadend and nzbToMedia.
@@ -160,8 +159,6 @@ Login to your Ubuntu 14.04 machine using gui or console. Run __ONE__ of the belo
 =======
 1. Click the **New file** button at the top of the **Source** page.
 Branches**, and **Settings** pages.
-
->>>>>>> ce65fb296e0de1100f3a0da950355511653d3bbf
 
 __Desktop Mode:__
 
@@ -381,4 +378,3 @@ All the web services can be tested and configured as following:
 * Desktop Mode [http://htpc-vm.local/](http://htpc-vm.local/)
 =======
 Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
->>>>>>> ce65fb296e0de1100f3a0da950355511653d3bbf
