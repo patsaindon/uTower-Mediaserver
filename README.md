@@ -1,14 +1,14 @@
 ## htpc-ansible
 
 HTPC Server Automation with 
-[MergerFS](https://github.com/trapexit/mergerfs)
-[Transmission](https://transmissionbt.com/) (Bittorent)
-[SnapRAid](http://www.snapraid.it//)
-[Couchpotato](https://couchpota.to/)
-[Sickrage](https://sickrage.github.io/)
-[HTPC-Manager](https://github.com/Hellowlol/HTPC-Manager.git)
-[Tvheadend](https://tvheadend.org/) 
-[nzbToMedia](https://github.com/clinton-hall/nzbToMedia)
+- [MergerFS](https://github.com/trapexit/mergerfs)
+- [Transmission](https://transmissionbt.com/) (Bittorent)
+- [SnapRAid](http://www.snapraid.it//)
+- [Couchpotato](https://couchpota.to/)
+- [Sickrage](https://sickrage.github.io/)
+- [HTPC-Manager](https://github.com/Hellowlol/HTPC-Manager.git)
+- [Tvheadend](https://tvheadend.org/) 
+- [nzbToMedia](https://github.com/clinton-hall/nzbToMedia)
 
 ## Overview
 
