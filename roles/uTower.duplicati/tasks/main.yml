@@ -1,0 +1,20 @@
+---
+- name: Create Duplicati container
+  docker_container:
+    name: duplicati
+    image: linuxserver/duplicati
+    network_mode: host
+    restart_policy: always
+    state: started
+    volumes:
+       - /opt/duplicati/:/config
+       - /mnt/data/Backups/:/backups
+       - /opt/:/source
+    exposed_ports:
+      - 8200
+    published_ports:
+      - "8200:8200"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000

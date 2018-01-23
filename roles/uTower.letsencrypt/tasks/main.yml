@@ -1,0 +1,22 @@
+---
+- name: Create Letsencrypt container
+  docker_container:
+    name: letsencrypt
+    image:   linuxserver/letsencrypt
+    network_mode: host
+    restart_policy: always
+    state: started
+    cap-add: NET_ADMIN
+    volumes:
+       - /opt/letsencrypt:/config
+    exposed_ports:
+      - 443
+    published_ports:
+      - "443:443"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+      EMAIL: "{{ uTower_user_email }} "
+      URL: "{{ subdomains }}.duckdns.org"
+#- include_tasks: copy.yml

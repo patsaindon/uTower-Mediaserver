@@ -1,0 +1,19 @@
+---
+- name: Create htpc-manager container
+  docker_container:
+    name: htpcmanager
+    image: linuxserver/htpcmanager
+    network_mode: host
+    restart_policy: always
+    state: started
+    volumes:
+       - /opt/htpcmanager:/config
+    exposed_ports:
+      - 8085
+    published_ports:
+      - "8085:8085"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+#- include_tasks: copy.yml

@@ -1,0 +1,17 @@
+---
+- name: Create Duckdns container
+  docker_container:
+    name: duckdns
+    image: linuxserver/duckdns
+    network_mode: host
+    restart_policy: always
+    state: started
+    volumes:
+       - /opt/duckdns:/config
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+      SUBDOMAINS: "{{ subdomains }}"
+      TOKEN: "{{ token }}" 
+

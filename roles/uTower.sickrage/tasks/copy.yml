@@ -1,21 +1,5 @@
 ---
-- name: Copy config.ini
-  template: src=config.ini dest=/opt/sickrage owner=root group=root
-
-- name: Edit torrent_host in config.ini
-  ini_file:
-    path: /opt/sickrage/config.ini
-    section: TORRENT
-    option: torrent_host
-    value: http://192.168.88.130:9091/
-    mode: 0600
-    backup: yes
-
-- name: Edit torrent_path in config.ini
-  ini_file:
-    path: /opt/sickrage/config.ini
-    section: TORRENT
-    option: torrent_path
-    value: /downloads
-    mode: 0600
-    backup: yes
+- name: Copy Sickrage configuration
+  template:
+    src: /opt/sickrage/config.ini.j2
+    dest: /opt/sickrage/config.ini

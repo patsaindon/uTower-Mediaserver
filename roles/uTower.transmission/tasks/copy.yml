@@ -1,3 +1,14 @@
 ---
-    - name: Copy settings.json
-      template: src=settings.json dest=/opt/transmission owner=root group=root
+- name: Copy Transmission configuration
+  template:
+    src: /opt/transmission/settings.json.j2
+    dest: /opt/transmission/settings.json
+
+
+
+#"rpc-authentication-required": true,
+#"rpc-username": "transmission",
+#"rpc-password": "{a8bd5760b5d7f5bad468b42d59e5d57e9cdc94f4deC5w6vL",
+#    "rpc-authentication-required": {{ transmission_rpc_auth_required | lower }},
+#    "rpc-password": "{{ transmission_password }}",
+#    "rpc-username": "{{ transmission_user }}",

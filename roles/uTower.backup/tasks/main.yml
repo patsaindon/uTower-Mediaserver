@@ -3,7 +3,11 @@
 
 # Backup mariadb kodi db
 #- name: Backup mariadb kodi db
-- script: DbBckp.sh
+- name: Dump all databases to hostname.sql
+  mysql_db:
+    state: dump
+    name: all
+    target: /opt/mariadb/{{ inventory_hostname }}.sql
 
 #  command: docker exec mariadb /usr/bin/mysqldump -u root --password=kodi MyVideos107 > /opt/mariadb/MyVideos107.sql
 

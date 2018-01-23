@@ -6,3 +6,6 @@ docker_containers: []
 #     image: linuxserver/transmission
 #     published_ports: 9091:9091
 #     env:
+#     transmission_rpc_auth_required: false
+#     transmission_user: "{{ ansible_user_id }}"
+#     transmission_password: youShouldChangeThisUnlessDisablingAuth
