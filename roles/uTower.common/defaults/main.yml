@@ -2,8 +2,8 @@
 # defaults file for uTower.common
 
 # uTower user
-uTower_user_username: users
-uTower_user_password: Pps7308
+uTower_user_user: users
+uTower_user_pass: Pps7308
 uTower_user_group: uTower
 uTower_user_shell: /bin/bash
 uTower_user_sudo_access: yes

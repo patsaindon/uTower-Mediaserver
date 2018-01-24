@@ -7,3 +7,15 @@ docker_containers: []
 #     published_ports: 5050:5050
 #     env:
 
+transmission_host: localhost
+transmission_user: {{ uTower_user_user }}
+transmission_pass:{{ uTower_user_user }}
+
+uTower_downloads_movies: /downloads
+transmission_password: Pps7308
+pushbullet_api: o.PrpQQ1z7m7E7A2Qd463ZB4VlmFXxZZAd
+pushbullet_enabled = 1
+
+kodi_host: localhost
+kodi_user: kodi
+kodi_password: kodi

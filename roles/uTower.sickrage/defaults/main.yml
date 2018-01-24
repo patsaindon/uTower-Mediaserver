@@ -1,8 +1,17 @@
 ---
-docker_containers: []
-# docker_containers:
-#   - name: sickrage
-#   - name: sickrage
-#     image: linuxserver/sickrage
-#     published_ports: 8081:8081
-#     env:
+#  {{  }}
+sickrage_path: /opt/sickrage
+sickrage_root_dirs: 0|/tv
+sickrage_user: {{ uTower_user_user }}
+sickrage_pass: {{ uTower_user_pass }}
+
+pushbullet_api: o.PrpQQ1z7m7E7A2Qd463ZB4VlmFXxZZAd
+
+transmission_host
+transmission_user
+transmission_pass
+
+
+kodi_host: localhost
+kodi_user: kodi
+kodi_pass: kodi

@@ -1,21 +1,12 @@
 ---
+- name: Make sure Kodi config folders are available
+  file: path={{ item }} state=directory 
+  with_items:
+    - "/opt/kodi/.kodi/"
+    - "/opt/kodi/.kodi/userdata"
+
 - name: Copy advancedsettings.xml
-  template: src=/opt/kodi/.kodi/userdata/advancedsettings.xml.j2 dest=/opt/kodi/.kodi/userdata/advancedsettings.xml owner=root group=root
+  template: src=advancedsettings.xml.j2 dest=/opt/kodi/.kodi/userdata/advancedsettings.xml
 
-- name: Set the rating to 11
-  xml:
-    path: /opt/kodi/.kodi/userdata/advancedsettings.xml
-    xpath: /videodatabase/host
-    value: 11
 
-- name: /opt/kodi/.kodi/userdata/advancedsettings.xml
-  xml:
-    path: /foo/bar.xml
-    xpath: /videodatabase/user
-    value: kodi
 
-- name: Set the rating to 11
-  xml:
-    path: /opt/kodi/.kodi/userdata/advancedsettings.xml
-    xpath: /videodatabase/pass
-    value: kodi

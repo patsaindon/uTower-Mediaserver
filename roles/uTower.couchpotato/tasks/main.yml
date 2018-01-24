@@ -1,4 +1,10 @@
 ---
+- template:
+    src: config.ini.j2
+    dest: /opt/couchpotato/config.ini
+    owner: user
+    backup: yes
+
 - name: Create CouchPotato container
   docker_container:
     name: couchpotato
@@ -18,4 +24,3 @@
       TZ: America/Toronto # offset = -05:00 / DST -04:00
       PUID: 1000
       PGID: 1000
-- include_tasks: copy.yml

@@ -1,1 +1,4 @@
 ---
+kodi_host: localhost
+kodi_user: kodi
+kodi_pass: kodi

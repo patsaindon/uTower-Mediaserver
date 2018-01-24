@@ -15,4 +15,4 @@ cd "$HOME/ansible-uTower-roles"
 # echo -e "\n\033[0;32m >> Run Wizard\033[0m"
 # python scripts/wizard.py <&1
 echo -e "\n\033[0;32m >> Installing ...\033[0m"
-ansible-playbook -i inventory/server-withclient -c local -K uTower-site.yml
+ansible-playbook -i inventory/inventory -c local -K site.yml

@@ -1,72 +1,17 @@
 # site.yml
 ---
-- hosts: kodi
-  become: yes
-
-  pre_tasks:
-
-    # Copy custom/custom.yml.sample to custom/custom.yml
-    # Update variable values
-    - name: Load custom variables from custom.yml
-      include_vars: group_vars/custom.yml
-      failed_when: false
-
-  roles:
-#    - { role: uTower.base, when: ntp_enabled }
-#    - { role: uTower.ntp, when: ntp_enabled }
-#    - { role: uTower.kodi_client, when: kodi_client_enabled }
-
 - hosts: uTower.dev
   become: yes
 
   pre_tasks:
 
-    # Copy custom/custom.yml.sample to custom/custom.yml
+    # Copy custom/custom.yml.sample to host_vars/HOSTNAME.yml
     # Update variable values
-#    - name: Load custom variables from custom.yml
-      include_vars: host_vars/192.168.88.131.yml
-#      failed_when: false
-
-  roles:
-     - role: uTower.ntp
-     - role: uTower.disk
-     - role: uTower.mergerfs
-     - role: uTower.common
-     - role: uTower.nas
-     - role: uTower.docker
-     - role: uTower.snapraid
-
-- hosts: uTower
-  become: yes
-
-  pre_tasks:
-
-    # Copy custom/custom.yml.sample to custom/custom.yml
-    # Update variable values
-#    - name: Load custom variables from custom.yml
-#      include_vars: group_vars/uTower/uTower.yml
-#      failed_when: false
-
-    - name: Load custom variables from custom.yml
-      include_vars: group_vars/uTower/"{{ HOSTNAME }}"
+    - name: Load custom variables from HOSTNAME.yml
+      include_vars: 
+        dir: host_vars
+        name: 192.168.88.128
       failed_when: false
 
   roles:
-     - role: uTower.ntp
-     - role: uTower.disk
-     - role: uTower.mergerfs
-     - role: uTower.common
-     - role: uTower.nas
-     - role: uTower.docker
-     - role: uTower.snapraid
-
-#     - role: uTower.kodi-headless
-#     - role: uTower.mariadb
-#     - role: uTower.transmission
-#     - role: uTower.couchpotato
-#     - role: uTower.sickrage
-
-#    - { role: uTower.uTower-manager, when: uTower_manager_enabled }
-#    - { role: uTower.transmission, when: transmission_enabled }
-#    - { role: uTower.sickrage, when: sickrage_enabled }
-#    - { role: uTower.couchpotato, when: couchpotato_enabled }
+    - role: uTower.mariadb

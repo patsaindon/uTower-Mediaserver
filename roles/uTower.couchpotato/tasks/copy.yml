@@ -1,3 +1,27 @@
 ---
-    - name: Copy config.ini
-      template: src=config.ini dest=/opt/couchpotato owner=root group=root
+- name: Pushbullet api
+  ini_file:
+    path: /opt/couchpotato/config.ini
+    section: pushbullet
+    option: api_key
+    value: "{{ pushbullet_api }}"
+    mode: 0600
+    backup: yes
+
+- name: Pushbullet enabled
+  ini_file:
+    path: /opt/couchpotato
+    section: pushbullet
+    option: enabled
+    value: 1
+    mode: 0600
+    backup: yes
+
+- name: Darktheme
+  ini_file:
+    path: /opt/couchpotato
+    section: core
+    option: Darktheme
+    value: True
+    mode: 0600
+    backup: yes

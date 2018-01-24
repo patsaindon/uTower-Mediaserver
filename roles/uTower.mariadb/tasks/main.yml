@@ -17,3 +17,10 @@
       PUID: 1000
       PGID: 1000
       MYSQL_ROOT_PASSWORD: kodi
+
+- copy:
+    src: create-mysql.sh
+    dest: /opt/mariadb/create-mysql.sh
+
+- name: Execute command inside a container
+  shell: "docker exec mariadb bash -c 'config/create-mysql.sh'"

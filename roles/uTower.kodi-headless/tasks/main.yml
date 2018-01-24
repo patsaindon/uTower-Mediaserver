@@ -1,4 +1,13 @@
 ---
+# Create media folders
+- name: Create Media Folders
+  file: path={{ item }} state=directory 
+  with_items:
+    - /opt/kodi/.kodi/userdata/
+
+- name: Copy advancedsettings.xml
+  template: src=advancedsettings.xml.j2 dest=/opt/kodi/.kodi/userdata/advancedsettings.xml 
+
 - name: Create kodi-headless container
   docker_container:
     name: kodi-headless
@@ -17,4 +26,4 @@
       TZ: America/Toronto # offset = -05:00 / DST -04:00
       PUID: 1000
       PGID: 1000
-- include_tasks: copy.yml
+
