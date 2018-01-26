@@ -1,28 +1,15 @@
 ---
-# tasks file for uTower.template
+- name: List docker containers
+  shell: "docker start {{ item }}"
+  register: docker_containers
+  args:
+    executable: /bin/bash
+  become: true
+  with_items:
+      - couchpotato
+      - kodi-headless
+      - mariadb
+      - sickrage
+      - transmission
+      - htpcmanager
 
-# Backup mariadb kodi db
-#- name: Backup mariadb kodi db
-- name: Dump all databases to hostname.sql
-  mysql_db:
-    state: dump
-    name: all
-    target: /opt/mariadb/{{ inventory_hostname }}.sql
-
-#  command: docker exec mariadb /usr/bin/mysqldump -u root --password=kodi MyVideos107 > /opt/mariadb/MyVideos107.sql
-
-# Backup fstab
-- copy:
-    src: /etc/fstab
-    dest: /opt/fstab/fstab.bck
-    owner: user
-    group: user
-    mode: 0644
-
-# Backup Samba config
-- copy:
-    src: /etc/samba/smb.conf
-    dest: /opt/samba/smb.conf
-    owner: user
-    group: user
-    mode: 0644

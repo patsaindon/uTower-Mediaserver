@@ -2,16 +2,9 @@
 # Copy custom/custom.yml.sample to custom/custom.yml
 # Modify lines were defaults that need to be changed.
 
-
-# mergerfs role
-#--------------
-
-# uTower-common role
-# ----------------
-
 # uTower user
-uTower_user_username: user
-uTower_user_password: Pps7308
+uTower_user_usern: user
+uTower_user_pass: Pps7308
 uTower_user_group: uTower
 uTower_user_shell: /bin/bash
 uTower_user_sudo_access: yes
@@ -19,6 +12,7 @@ uTower_user_sudo_access: yes
 # Common mount point for server data
 mount_point: /mnt/data
 
+# uTower.disk vars
 disk_additional_disks:
  - disk: /dev/sdb
    fstype: xfs
@@ -73,8 +67,8 @@ docker_group_members:
 
 # uTower-nas role
 # -------------
-# Enable NFS sharing ( Used by Kodi to share media )
-uTower_nas_nfs: no
+# Enable NFS sharing
+uTower_nas_nfs: yes
 # Enable Windows Sharing
 uTower_nas_cifs: yes
 # Enable Mac Sharing
@@ -83,8 +77,8 @@ uTower_nas_afp: no
 # sickrage role
 # -------------
 sickrage_path: /opt/sickrage
-sickrage_user: "{{ uTower_user_username }}"
-sickrage_pass: "{{ uTower_user_password }}"
+sickrage_user: "{{ uTower_user_user }}"
+sickrage_pass: "{{ uTower_user_pass }}"
 
 # couchpotato role
 # ----------------
@@ -99,8 +93,8 @@ htpc_manager_path: /opt/uTowermanager
 transmission_path: /opt/transmission
 transmission_host: http://localhost
 transmission_rpc_auth_required: true
-transmission_user: "{{ uTower_user_username }}"
-transmission_password: "{{ uTower_user_password }}"
+transmission_user: "{{ uTower_user_user }}"
+transmission_pass: "{{ uTower_user_pass }}"
 transmission_download-dir: "/downloads"
 
 # duckdns role
@@ -111,10 +105,10 @@ token: "7997c64f-6d30-4028-b10d-69b19498cd74"
 
 # kodi-headless role
 # ------------------
-kodi_host: http://localhost
+kodi_host: localhost
 kodi_host_port: 8777
-kodi_username: kodi
-kodi_password: kodi
+kodi_user: kodi
+kodi_pass: kodi
 
 # pushbullet_api
 # --------------

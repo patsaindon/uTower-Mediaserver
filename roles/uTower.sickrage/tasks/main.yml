@@ -1,4 +1,15 @@
 ---
+- name: Create sickrage folder
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ sickrage_path }}"
+
+- template:
+    src: config.ini.j2
+    dest: /opt/sickrage/config.ini
+    owner: user
+    backup: no
+
 - name: Create Sickrage container
   docker_container:
     name: sickrage
@@ -18,4 +29,3 @@
       TZ: America/Toronto # offset = -05:00 / DST -04:00
       PUID: 1000
       PGID: 1000
-- include_tasks: copy.yml

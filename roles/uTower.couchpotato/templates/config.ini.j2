@@ -200,18 +200,18 @@ password =
 use_for = both
 
 [transmission]
-username = admin
+username = {{ transmission_user }}
 stalled_as_failed = True
 delete_failed = True
 rpc_url = transmission
 manual = 0
 enabled = 1
 paused = 1
-host = {{ transmission_host }}:9091
+host = {{ host_ip }}:9091
 delete_files = True
 directory = {{ uTower_downloads_movies }}
 remove_complete = True
-password = {{ transmission_password }}
+password = {{ transmission_pass }}
 
 [utorrent]
 username =
@@ -389,8 +389,8 @@ force_full_scan = 0
 only_first = 1
 enabled = 1
 remote_dir_scan = 0
-host = {{ kodi_host }}
-password = {{ kodi_password }}
+host = {{ host_ip }}:8080
+password = {{ kodi_pass }}
 meta_disc_art_name = disc.png
 meta_extra_thumbs_name = extrathumbs/thumb<i>.jpg
 meta_thumbnail = True

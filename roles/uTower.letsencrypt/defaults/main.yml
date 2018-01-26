@@ -6,4 +6,5 @@ docker_containers: []
 #     image: linuxserver/couchpotato
 #     published_ports: 5050:5050
 #     env:
-
+subdomains: towerbox
+uTower_user_email: pat.saindon@gmail.com

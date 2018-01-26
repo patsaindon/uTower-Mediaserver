@@ -1,4 +1,9 @@
 ---
+- name: Create couchpotato Folder
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ couchpotato_path  }}"
+
 - template:
     src: config.ini.j2
     dest: /opt/couchpotato/config.ini

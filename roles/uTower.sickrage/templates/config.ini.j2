@@ -595,7 +595,7 @@ usenet_crawler_search_fallback = 0
 usenet_crawler_enable_daily = 1
 usenet_crawler_enable_backlog = 1
 [Newznab]
-newznab_data = "NZB.Cat|https://nzb.cat/||5030,5040,5010|0|eponly|0|1|1!!!NZBFinder.ws|https://nzbfinder.ws/||5030,5040,5010,5045|0|eponly|0|1|1!!!NZBGeek|https://api.nzbgeek.info/||5030,5040|0|eponly|0|1|1!!!NZBs.org|https://nzbs.org/||5030,5040|0|eponly|0|1|1!!!Usenet-Crawler|https://www.usenet-crawler.com/||5030,5040|0|eponly|0|1|1!!!DOGnzb|https://api.dognzb.cr/||5030,5040,5060,5070|0|eponly|0|1|1"
+newznab_data = ""
 [NZBs]
 nzbs = 0
 nzbs_uid = ""
@@ -723,7 +723,7 @@ use_plex_server = 0
 [TORRENT]
 torrent_verify_cert = 0
 torrent_paused = 0
-torrent_host = {{ transmission_host }}
+torrent_host = {{ host_ip }}:9091
 torrent_label_anime = ""
 torrent_path = /downloads
 torrent_auth_type = none
@@ -766,12 +766,12 @@ email_host = ""
 kodi_update_onlyfirst = 0
 kodi_notify_onsnatch = 0
 kodi_notify_ondownload = 1
-kodi_host = {{ kodi_host }}
-kodi_username = {{ kodi_user }}
+kodi_host = {{ host_ip }}
+kodi_user = kodi
 kodi_always_on = 1
 kodi_update_library = 0
 use_kodi = 1
-kodi_password = {{ kodi_pass }}
+kodi_pass = kodi
 kodi_update_full = 0
 kodi_notify_onsubtitledownload = 0
 [Telegram]
@@ -862,7 +862,7 @@ torrent_method = transmission
 localhost_ip = ""
 use_listview = 0
 version_notify = 1
-enable_https = 1
+enable_https = 0
 naming_custom_abd = 0
 allowed_extensions = "nfo,srr,sfv,srt"
 web_root = ""

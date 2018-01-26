@@ -1,0 +1,7 @@
+# site.yml
+---
+- hosts: uTower.dev
+  become: yes
+
+  roles:
+    - role: uTower.cleanup

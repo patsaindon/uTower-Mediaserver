@@ -1,5 +1,4 @@
 ---
-# Create media folders
 - name: Create Media Folders
   file: path={{ item }} state=directory 
   with_items:

@@ -1,0 +1,21 @@
+---
+- name: List docker containers
+  shell: "docker stop $(docker ps -a -q)"
+  register: docker_containers
+  args:
+    executable: /bin/bash
+  become: true
+
+- name: Remove /opt folders
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+      - /opt/couchpotato
+      - /opt/kodi
+      - /opt/mariadb
+      - /opt/sickrage
+      - /opt/transmission
+
+
+        

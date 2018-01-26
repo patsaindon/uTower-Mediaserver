@@ -1,0 +1,15 @@
+---
+- name: Create Openvpn-as container
+  docker_container:
+    name: openvpn-as
+    image: linuxserver/openvpn-as
+    network_mode: host
+    privileged: yes
+    restart_policy: always
+    state: started
+    volumes:
+       - /opt/openvpn-as:/config
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000

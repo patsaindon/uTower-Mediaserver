@@ -1,17 +1,14 @@
 # site.yml
 ---
-- hosts: uTower.dev
+- hosts: localhost
   become: yes
-
-  pre_tasks:
-
-    # Copy custom/custom.yml.sample to host_vars/HOSTNAME.yml
-    # Update variable values
-    - name: Load custom variables from HOSTNAME.yml
-      include_vars: 
-        dir: host_vars
-        name: 192.168.88.128
-      failed_when: false
 
   roles:
     - role: uTower.mariadb
+    - role: uTower.couchpotato
+    - role: uTower.sickrage
+    - role: uTower.kodi-headless
+    - role: uTower.transmission
+    - role: uTower.duplicati
+    - role: uTower.htpcmanager
+    - role: uTower.openvpnas

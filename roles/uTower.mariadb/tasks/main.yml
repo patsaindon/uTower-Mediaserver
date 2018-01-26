@@ -23,4 +23,7 @@
     dest: /opt/mariadb/create-mysql.sh
 
 - name: Execute command inside a container
-  shell: "docker exec mariadb bash -c 'config/create-mysql.sh'"
+  shell: "docker exec mariadb /bin/bash -l -c 'bash ./config/create-mysql.sh'"
+  args:
+    executable: /bin/bash
+  become: true

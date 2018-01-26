@@ -1,4 +1,19 @@
 ---
+- name: Create transmission Folder
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ transmission_path }}"
+
+- template:
+    src: settings.json.j2    
+    dest: /opt/transmission/settings.json
+    owner: user
+    backup: no
+
+- name: Wait until the file /settings.json is present before continuing
+  wait_for:
+    path: /opt/transmission/settings.json
+
 - name: Create Transmission container
   docker_container:
     name: transmission
@@ -19,4 +34,3 @@
       TZ: America/Toronto # offset = -05:00 / DST -04:00
       PUID: 1000
       PGID: 1000
-- include_tasks: copy.yml

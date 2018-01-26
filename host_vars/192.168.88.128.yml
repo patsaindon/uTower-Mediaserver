@@ -134,8 +134,8 @@ token: "7997c64f-6d30-4028-b10d-69b19498cd74"
 # ------------------
 kodi_host: http://localhost
 kodi_host_port: 8777
-kodi_username: kodi
-kodi_password: kodi
+kodi_user: kodi
+kodi_pass: kodi
 
 # pushbullet_api
 # --------------

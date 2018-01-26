@@ -6,11 +6,13 @@ docker_containers: []
 #     image: linuxserver/transmission
 #     published_ports: 9091:9091
 #     env:
+uTower_user_user: user
+uTower_user_pass: Pps7308
 
-uTower_downloads: /downloads
-uTower_downloads_incomplete: /downloads/incomplete
+transmission_path: /opt/transmission
 
-transmission_rpc_auth_required:
-transmission_user: {{ uTower_user_user }}
-transmission_pass: {{ uTower_user_pass }}
+uTower_downloads: "/downloads"
+uTower_downloads_incomplete: "/downloads/incomplete"
 
+transmission_user: "{{ uTower_user_user }}"
+transmission_pass: "{{ uTower_user_pass }}"
