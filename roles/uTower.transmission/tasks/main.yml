@@ -5,7 +5,7 @@
     - "{{ transmission_path }}"
 
 - template:
-    src: settings.json.j2    
+    src: settings.json.j2
     dest: /opt/transmission/settings.json
     owner: user
     backup: no
@@ -34,3 +34,16 @@
       TZ: America/Toronto # offset = -05:00 / DST -04:00
       PUID: 1000
       PGID: 1000
+
+- pause:
+    seconds: 5
+
+- uri:
+    url: "http://{{ uTower_user_user }}:{{ uTower_user_pass }}@{{ host_ip }}:9091"
+  register: login
+
+- pushbullet:
+    api_key: "{{ pushbullet_api }}"
+    title: Transmission web service is UP!
+    device: Chrome
+    body: "{{ login.url }}"

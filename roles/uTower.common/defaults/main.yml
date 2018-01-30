@@ -19,6 +19,7 @@ uTower_media_movies: movies
 uTower_media_tv: tv
 uTower_media_music: music
 uTower_media_pictures: pictures
+uTower_downloads_torrents: "{{ uTower_media_path }}/downloads/torrents"
 uTower_downloads_tv: "{{ uTower_media_path }}/downloads/tv"
 uTower_downloads_movies: "{{ uTower_media_path }}/downloads/movies"
 uTower_downloads_incomplete: "{{ uTower_media_path }}/downloads/incomplete"

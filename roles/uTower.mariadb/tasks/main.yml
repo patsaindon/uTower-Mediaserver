@@ -1,4 +1,14 @@
 ---
+- name: Create mariadb Folder
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ mariadb_path  }}"
+
+- copy:
+    src: custom.cnf
+    dest: "{{ mariadb_path  }}/custom.cnf"
+    owner: user
+
 - name: Create Mariadb container
   docker_container:
     name: mariadb
@@ -18,12 +28,57 @@
       PGID: 1000
       MYSQL_ROOT_PASSWORD: kodi
 
-- copy:
-    src: create-mysql.sh
-    dest: /opt/mariadb/create-mysql.sh
+- name: Install packages required for ansible mysql modules on Ubuntu before 16.04
+  apt: name={{ item }} state=present
+  with_items:
+    - python-mysqldb
+  when: ansible_lsb.major_release|int < 16
 
-- name: Execute command inside a container
-  shell: "docker exec mariadb /bin/bash -l -c 'bash ./config/create-mysql.sh'"
+- name: Install packages required for ansible mysql modules on Ubuntu 16.04
+  apt: name={{ item }} state=present
+  with_items:
+    - python3-dev
+    - libmysqlclient-dev
+    - mariadb-client-core-10.0
+  when: ansible_lsb.major_release|int >= 16
+
+- name: Install Python package manager on Ubuntu 16.04
+  apt: name=python3-pip state=present
+  when: ansible_lsb.major_release|int >= 16
+
+- name: Install Python package manager on Ubuntu 16.04
+  pip: name=MySQL-python state=present
+  when: ansible_lsb.major_release|int >= 16
+
+- name: Install the Python package required for ansible MySQL modules on Ubuntu 16.04
+  pip: name=mysqlclient
+  when: ansible_lsb.major_release|int >= 16
+
+- template:
+    src: create-mysql.sh.j2
+    dest: /opt/mariadb/create-mysql.sh
+    owner: user
+    group: user
+    mode: 0755
+
+- pause:
+    seconds: 15
+
+- shell: bash "{{ mariadb_path }}/create-mysql.sh"
   args:
     executable: /bin/bash
-  become: true
+
+- copy:
+    src: MyVideos107.sql
+    dest: "{{ mariadb_path }}/MyVideos107.sql"
+    owner: user
+
+- name: Restore database
+  mysql_db:
+    config_file: "{{ mariadb_path }}/custom.cnf"
+    login_host: "{{ host_ip  }}"
+    login_user: root
+    login_password: kodi
+    name: all
+    state: import
+    target: "{{ mariadb_path }}/MyVideos107.sql"

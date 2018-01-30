@@ -3,7 +3,7 @@
 # Modify lines were defaults that need to be changed.
 
 # uTower user
-uTower_user_usern: user
+uTower_user_user: user
 uTower_user_pass: Pps7308
 uTower_user_group: uTower
 uTower_user_shell: /bin/bash

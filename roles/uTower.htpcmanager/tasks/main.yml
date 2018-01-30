@@ -16,4 +16,16 @@
       TZ: America/Toronto # offset = -05:00 / DST -04:00
       PUID: 1000
       PGID: 1000
-#- include_tasks: copy.yml
+
+- pause:
+    seconds: 5
+
+- uri:
+    url: "http://{{ uTower_user_user }}:{{ uTower_user_pass }}@{{ host_ip }}:8085"
+  register: login
+
+- pushbullet:
+    api_key: "{{ pushbullet_api }}"
+    title: htpc-manager web service is UP!
+    device: Chrome
+    body: "http://{{ host_ip }}:8085"

@@ -1,0 +1,5 @@
+---
+# defaults file for uTower.sonarr
+# sonarr role
+# ----------------
+sonarr_path: /opt/sonarr

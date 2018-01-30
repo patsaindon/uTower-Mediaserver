@@ -3,6 +3,10 @@
 
 uTower_nas_enabled: yes
 
-uTower_nas_nfs: no
+uTower_user_user: user
+uTower_user_pass: Pps7308
+
+
+uTower_nas_nfs: yes
 uTower_nas_cifs: yes
 uTower_nas_afp: no

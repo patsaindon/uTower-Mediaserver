@@ -1,14 +1,21 @@
-# site.yml
 ---
-- hosts: localhost
+- hosts: all
   become: yes
 
   roles:
-    - role: uTower.mariadb
-    - role: uTower.couchpotato
-    - role: uTower.sickrage
-    - role: uTower.kodi-headless
+#    - role: systemd-timesyncd-master
+#    - role: uTower.disk
+#    - role: uTower.mergerfs
+#    - role: uTower.common
+#    - role: uTower.nas
+#    - role: uTower.snapraid
+#    - role: uTower.docker
+#    - role: uTower.mariadb
+#    - role: uTower.couchpotato
+#    - role: uTower.sickrage
+#    - role: uTower.kodi-headless
     - role: uTower.transmission
     - role: uTower.duplicati
     - role: uTower.htpcmanager
-    - role: uTower.openvpnas
+#    - role: uTower.sonarr
+#    - role: uTower.radarr

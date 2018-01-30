@@ -1,0 +1,4 @@
+---
+mariadb_path: /opt/mariadb
+
+host_ip: "{{ ansible_ens33.ipv4.address }}"

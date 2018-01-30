@@ -1,0 +1,39 @@
+---
+# tasks file for uTower.radarr
+- name: Create radarr Folder
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ radarr_path  }}"
+
+- name: Create radarr container
+  docker_container:
+    name: radarr
+    image: linuxserver/radarr
+    network_mode: host
+    restart_policy: always
+    state: started
+    volumes:
+       - /opt/radarr:/config
+       - /mnt/data/downloads/movies:/downloads
+       - /mnt/data/movies:/movies
+    exposed_ports:
+      - 7878
+    published_ports:
+      - "7878:7878"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+
+- pause:
+    seconds: 5
+
+- uri:
+    url: "http://{{ kodi_user }}:{{ kodi_pass }}@{{ host_ip }}:7878"
+  register: login
+
+- pushbullet:
+    api_key: "{{ pushbullet_api }}"
+    title: radarr service is UP!
+    device: Chrome
+    body: "http://{{ host_ip }}:7878"

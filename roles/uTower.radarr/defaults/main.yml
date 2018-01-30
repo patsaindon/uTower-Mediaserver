@@ -1,0 +1,6 @@
+---
+# defaults file for uTower.radarr
+
+# radarr role
+# ----------------
+radarr_path: /opt/radarr

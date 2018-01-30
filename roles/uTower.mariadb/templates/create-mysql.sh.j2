@@ -1,0 +1,4 @@
+#!/bin/sh
+mysql -h {{ ansible_ens33.ipv4.address }} -P 3306 --protocol=tcp -uroot -pkodi -e "CREATE USER 'kodi' IDENTIFIED BY 'kodi';"
+mysql -h {{ ansible_ens33.ipv4.address }} -P 3306 --protocol=tcp -uroot -pkodi -e "GRANT ALL ON *.* TO 'kodi';"
+mysql -h {{ ansible_ens33.ipv4.address }} -P 3306 --protocol=tcp -uroot -pkodi -e "flush privileges;"

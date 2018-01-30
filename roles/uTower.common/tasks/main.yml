@@ -1,6 +1,9 @@
 ---
 # tasks file for uTower.common
 
+- name: Install pushbullet package
+  pip: name=pushbullet.py state=present
+
 # BLOCK: Configure SSH service
 - block:
 
@@ -20,13 +23,13 @@
     group: name={{ uTower_user_group }} state=present
 
   - name: Generate uTower user password
-    command: /usr/bin/openssl passwd -salt random_salt -1 {{ uTower_user_password }}
+    command: /usr/bin/openssl passwd -salt random_salt -1 {{ uTower_user_pass }}
     register: uTower_user_generated_password
     changed_when: false
 
   - name: Create uTower user
     user:
-      name={{ uTower_user_username }}
+      name={{ uTower_user_user }}
       password={{ uTower_user_generated_password.stdout }}
       group={{ uTower_user_group }}
       update_password=on_create
@@ -45,7 +48,7 @@
 
   - name: Enable sudo for uTower user
     user:
-      name={{ uTower_user_username }}
+      name={{ uTower_user_user }}
       groups=sudo
       append=yes
     when: uTower_user_sudo_access
@@ -55,7 +58,7 @@
 
 # Create media folders
 - name: Create Media Folders
-  file: path={{ item }} state=directory owner={{ uTower_user_username }} group={{ uTower_user_group }} mode=0755 recurse=yes
+  file: path={{ item }} state=directory owner={{ uTower_user_user }} group={{ uTower_user_group }} mode=0755 recurse=yes
   with_items:
     - "{{ uTower_media_path }}/{{ uTower_media_movies }}"
     - "{{ uTower_media_path }}/{{ uTower_media_tv }}"
@@ -66,14 +69,15 @@
     - media
 
 - name: Create Downloads Folders
-  file: path={{ item }} state=directory owner={{ uTower_user_username }} group={{ uTower_user_group }} mode=0755 recurse=yes
+  file: path={{ item }} state=directory owner={{ uTower_user_user }} group={{ uTower_user_group }} mode=0755 recurse=yes
   with_items:
+    - "{{ uTower_downloads_torrents }}"
     - "{{ uTower_downloads_tv }}"
     - "{{ uTower_downloads_movies }}"
     - "{{ uTower_downloads_incomplete }}"
 
 - name: Create Processing Folders
-  file: path={{ item }} state=directory owner={{ uTower_user_username }} group={{ uTower_user_group }} mode=0755 recurse=yes
+  file: path={{ item }} state=directory owner={{ uTower_user_user }} group={{ uTower_user_group }} mode=0755 recurse=yes
   with_items:
     - "{{ uTower_downloads_incomplete }}"
 

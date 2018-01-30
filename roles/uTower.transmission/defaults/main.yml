@@ -11,8 +11,12 @@ uTower_user_pass: Pps7308
 
 transmission_path: /opt/transmission
 
+host_ip: "{{ ansible_ens33.ipv4.address }}"
+
 uTower_downloads: "/downloads"
 uTower_downloads_incomplete: "/downloads/incomplete"
 
 transmission_user: "{{ uTower_user_user }}"
 transmission_pass: "{{ uTower_user_pass }}"
+
+pushbullet_api: o.PrpQQ1z7m7E7A2Qd463ZB4VlmFXxZZAd

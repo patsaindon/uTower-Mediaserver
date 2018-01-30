@@ -5,7 +5,7 @@
   command: /usr/sbin/exportfs -a
 
 - name: create samba users
-  shell: (echo "{{ uTower_user_password }}"; echo "{{ uTower_user_password }}") | smbpasswd -s -a {{ uTower_user_username }}
+  shell: (echo "{{ uTower_user_pass }}"; echo "{{ uTower_user_pass }}") | smbpasswd -s -a {{ uTower_user_user }}
 
 - name: restart samba
   service: name={{ item }} state=restarted

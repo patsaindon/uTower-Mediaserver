@@ -6,3 +6,9 @@ docker_containers: []
 #     image: linuxserver/htpcmanager
 #     published_ports: 8085:8085
 #     env:
+uTower_user_user: "user"
+uTower_user_pass: "Pps7308"
+
+host_ip: "{{ ansible_ens33.ipv4.address }}"
+
+pushbullet_api: o.PrpQQ1z7m7E7A2Qd463ZB4VlmFXxZZAd
