@@ -17,6 +17,7 @@
     network_mode: host
     restart_policy: always
     state: started
+    pull: yes
     volumes:
        - /opt/sickrage:/config
        - /mnt/data/downloads/tv:/downloads

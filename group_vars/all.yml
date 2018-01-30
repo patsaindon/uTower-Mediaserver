@@ -4,25 +4,24 @@
 
 # Switches to Enable/Disable Roles
 # Base setup
-ntp_enabled: no
+#ntp_enabled: no
 disk_enabled: no
 mergerfs_enabled: no
 common_enabled: no
 nas_enabled: no
-docker_enabled: no
 snapraid_enabled: no
+docker_enabled: no
 
 #Containers
+mariadb_enabled: no
 couchpotato_enabled: yes
-kodi-headless_enabled: yes
-mariadb_enabled: yes
 sickrage_enabled: yes
+kodi_headless_enabled: yes
 transmission_enabled: yes
 duplicati_enabled: yes
-htpcmanager_enabled: yes
-letsencrypt_enabled: yes
-jackett_enabled: yes
-codiad_enabled: yes
+htpc_manager_enabled: yes
+sonarr_enabled: no
+radarr_enabled: no
 
 # mergerfs role
 #--------------

@@ -16,6 +16,7 @@
     network_mode: host
     restart_policy: always
     state: started
+    pull: yes
     volumes:
        - /opt/mariadb:/config
     exposed_ports:

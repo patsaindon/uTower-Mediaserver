@@ -5,13 +5,14 @@
   with_items:
     - "{{ sonarr_path  }}"
 
-  - name: Create sonarr container
+- name: Create sonarr container
   docker_container:
     name: sonarr
     image: linuxserver/sonarr
     network_mode: host
     restart_policy: always
     state: started
+    pull: yes
     volumes:
        - /opt/sonarr:/config
        - /mnt/data/downloads/tv:/downloads

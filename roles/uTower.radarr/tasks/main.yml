@@ -12,6 +12,7 @@
     network_mode: host
     restart_policy: always
     state: started
+    pull: yes
     volumes:
        - /opt/radarr:/config
        - /mnt/data/downloads/movies:/downloads

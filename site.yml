@@ -3,19 +3,22 @@
   become: yes
 
   roles:
-#    - role: systemd-timesyncd-master
-#    - role: uTower.disk
-#    - role: uTower.mergerfs
-#    - role: uTower.common
-#    - role: uTower.nas
-#    - role: uTower.snapraid
-#    - role: uTower.docker
-#    - role: uTower.mariadb
-#    - role: uTower.couchpotato
-#    - role: uTower.sickrage
-#    - role: uTower.kodi-headless
-    - role: uTower.transmission
-    - role: uTower.duplicati
-    - role: uTower.htpcmanager
-#    - role: uTower.sonarr
-#    - role: uTower.radarr
+    # Base
+  #  - { role:  uTower.ntp, when: ntp_enabled }
+    - { role:  uTower.disk, when: disk_enabled }
+    - { role:  uTower.mergerfs, when: mergerfs_enabled }
+    - { role:  uTower.common, when: common_enabled }
+    - { role:  uTower.nas, when: nas_enabled }
+    - { role:  uTower.snapraid, when: snapraid_enabled }
+    - { role:  uTower.docker, when: docker_enabled }
+
+    # Containers
+    - { role:  uTower.mariadb, when: mariadb_enabled }
+    - { role:  uTower.couchpotato, when: couchpotato_enabled }
+    - { role:  uTower.sickrage, when: sickrage_enabled }
+    - { role:  uTower.kodi-headless, when: kodi_headless_enabled }
+    - { role:  uTower.transmission, when: transmission_enabled }
+    - { role:  uTower.duplicati, when: duplicati_enabled }
+    - { role:  uTower.htpcmanager, when: htpc_manager_enabled }
+    - { role:  uTower.sonarr, when: sonarr_enabled }
+    - { role:  uTower.radarr, when: radarr_enabled }

@@ -6,6 +6,7 @@
     network_mode: host
     restart_policy: always
     state: started
+    pull: yes
     volumes:
        - /opt/duplicati/:/config
        - /mnt/data/Backups/:/backups
@@ -18,3 +19,16 @@
       TZ: America/Toronto # offset = -05:00 / DST -04:00
       PUID: 1000
       PGID: 1000
+
+- pause:
+    seconds: 5
+
+- uri:
+    url: "http://{{ uTower_user_user }}:{{ uTower_user_pass }}@{{ host_ip }}:8200"
+  register: login
+
+- pushbullet:
+    api_key: "{{ pushbullet_api }}"
+    title: Duplicati web service is UP!
+    device: Chrome
+    body: "http://{{ host_ip }}:8200"

@@ -15,8 +15,10 @@
     name: kodi-headless
     image: linuxserver/kodi-headless
     network_mode: host
+    pull: yes
     restart_policy: always
     state: started
+    pull: yes
     volumes:
        - /opt/kodi:/config
     exposed_ports:

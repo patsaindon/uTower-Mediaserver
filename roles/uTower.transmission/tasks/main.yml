@@ -21,6 +21,7 @@
     network_mode: host
     restart_policy: always
     state: started
+    pull: yes
     volumes:
        - /opt/transmission:/config
        - /mnt/data/downloads:/downloads

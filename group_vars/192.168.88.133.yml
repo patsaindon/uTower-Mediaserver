@@ -2,9 +2,37 @@
 # Copy custom/custom.yml.sample to custom/custom.yml
 # Modify lines were defaults that need to be changed.
 
+# Switches to Enable/Disable Roles
+# Switches to Enable/Disable Roles
+# Base setup
+ntp_enabled: no
+disk_enabled: no
+mergerfs_enabled: no
+common_enabled: no
+nas_enabled: no
+snapraid_enabled: no
+docker_enabled: no
+
+#Containers
+mariadb_enabled: no
+couchpotato_enabled: yes
+sickrage_enabled: yes
+kodi-headless_enabled: yes
+transmission_enabled: yes
+duplicati_enabled: yes
+htpc_manager_enabled: yes
+sonarr_enabled:no
+radarr_enabled: no
+
+# mergerfs role
+#--------------
+
+# uTower-common role
+# ----------------
+
 # uTower user
-uTower_user_user: user
-uTower_user_pass: Pps7308
+uTower_user_username: uTower
+uTower_user_password: uTower
 uTower_user_group: uTower
 uTower_user_shell: /bin/bash
 uTower_user_sudo_access: yes
@@ -12,7 +40,6 @@ uTower_user_sudo_access: yes
 # Common mount point for server data
 mount_point: /mnt/data
 
-# uTower.disk vars
 disk_additional_disks:
  - disk: /dev/sdb
    fstype: xfs
@@ -67,8 +94,8 @@ docker_group_members:
 
 # uTower-nas role
 # -------------
-# Enable NFS sharing
-uTower_nas_nfs: yes
+# Enable NFS sharing ( Used by Kodi to share media )
+uTower_nas_nfs: no
 # Enable Windows Sharing
 uTower_nas_cifs: yes
 # Enable Mac Sharing
@@ -77,8 +104,12 @@ uTower_nas_afp: no
 # sickrage role
 # -------------
 sickrage_path: /opt/sickrage
-sickrage_user: "{{ uTower_user_user }}"
-sickrage_pass: "{{ uTower_user_pass }}"
+torrent_method: transmission
+torrent_host: http://localhost:9091/
+torrent_path: /downloads/TV
+torrent_username: "{{ uTower_user_username }}"
+torrent_password: "{{ uTower_user_password }}"
+
 
 # couchpotato role
 # ----------------
@@ -93,9 +124,9 @@ htpc_manager_path: /opt/uTowermanager
 transmission_path: /opt/transmission
 transmission_host: http://localhost
 transmission_rpc_auth_required: true
-transmission_user: "{{ uTower_user_user }}"
-transmission_pass: "{{ uTower_user_pass }}"
-transmission_download-dir: "/downloads"
+transmission_user: "{{ uTower_user_username }}"
+transmission_password: "{{ uTower_user_password }}"
+transmission_download-dir: "/downloads",
 
 # duckdns role
 # ------------
@@ -105,7 +136,7 @@ token: "7997c64f-6d30-4028-b10d-69b19498cd74"
 
 # kodi-headless role
 # ------------------
-kodi_host: localhost
+kodi_host: http://localhost
 kodi_host_port: 8777
 kodi_user: kodi
 kodi_pass: kodi

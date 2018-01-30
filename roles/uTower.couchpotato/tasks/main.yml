@@ -1,4 +1,5 @@
 ---
+  # tasks file for uTower.couchpotato
 - name: Create couchpotato Folder
   file: path={{ item }} state=directory
   with_items:
@@ -17,6 +18,7 @@
     network_mode: host
     restart_policy: always
     state: started
+    pull: yes
     volumes:
        - /opt/couchpotato:/config
        - /mnt/data/downloads/movies:/downloads

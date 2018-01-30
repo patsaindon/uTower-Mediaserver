@@ -6,6 +6,7 @@
     network_mode: host
     restart_policy: always
     state: started
+    pull: yes
     volumes:
        - /opt/htpcmanager:/config
     exposed_ports:
