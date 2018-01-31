@@ -1,10 +1,10 @@
 ---
-- hosts: all
+- hosts: 192.168.88.134
   become: yes
 
   roles:
     # Base
-  #  - { role:  uTower.ntp, when: ntp_enabled }
+    - { role:  uTower.ntp, when: ntp_enabled }
     - { role:  uTower.disk, when: disk_enabled }
     - { role:  uTower.mergerfs, when: mergerfs_enabled }
     - { role:  uTower.common, when: common_enabled }
@@ -16,7 +16,7 @@
     - { role:  uTower.mariadb, when: mariadb_enabled }
     - { role:  uTower.couchpotato, when: couchpotato_enabled }
     - { role:  uTower.sickrage, when: sickrage_enabled }
-    - { role:  uTower.kodi-headless, when: kodi_headless_enabled }
+    - { role:  uTower.kodi-headless, when: kodiheadless_enabled }
     - { role:  uTower.transmission, when: transmission_enabled }
     - { role:  uTower.duplicati, when: duplicati_enabled }
     - { role:  uTower.htpcmanager, when: htpc_manager_enabled }

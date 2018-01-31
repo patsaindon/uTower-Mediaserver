@@ -1,0 +1,4 @@
+# pushbullet_api
+# --------------
+htpc_manager_path: /opt/uTowermanager
+htpcmanager_port: "8085"

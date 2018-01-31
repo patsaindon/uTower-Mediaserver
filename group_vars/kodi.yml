@@ -1,0 +1,113 @@
+---
+# Modify lines were defaults that need to be changed.
+# uTower user
+uTower_user_user: user
+uTower_user_pass: Pps7308
+uTower_user_group: uTower
+uTower_user_shell: /bin/bash
+uTower_user_sudo_access: yes
+
+# Common mount point for server data
+mount_point: /mnt/data
+
+# uTower.disk vars
+disk_additional_disks:
+ - disk: /dev/sdb
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/disk1
+   disable_periodic_fsck: false
+ - disk: /dev/sdc
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/disk2
+   disable_periodic_fsck: false
+ - disk: /dev/sdd
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/disk3
+   disable_periodic_fsck: false
+ - disk: /dev/sde
+   fstype: xfs
+   mount_options: defaults
+   mount: /mnt/parity
+   disable_periodic_fsck: false
+
+additional_fs_utils:
+  - xfsprogs     # package for mkfs.xfs on RedHat / Ubuntu
+# - btrfs-progs  # package for mkfs.btrfs on CentOS / Debian
+
+# services
+uTower_ssh_service: yes
+uTower_create_media_folders: yes
+uTower_zeroconf: yes
+
+# downloads and media directories
+uTower_media_path: /mnt/data
+uTower_media_movies: movies
+uTower_media_tv: tv
+uTower_media_music: music
+uTower_media_pictures: pictures
+uTower_downloads: "{{ uTower_media_path }}/downloads"
+uTower_downloads_incomplete: "{{ uTower_media_path }}/downloads/incomplete"
+uTower_downloads_tv: "{{ uTower_media_path }}/downloads/tv"
+uTower_downloads_movies: "{{ uTower_media_path }}/downloads/movies"
+
+# Helper variable. In use by other roles
+# Change the way different service are resolved in configuration files.
+# Available values are zeroconf, hostname and staticip
+uTower_resolving: zeroconf
+
+# Helper variable. In use by other roles
+# When installed with docker role, make sure uTower user can access the docker daemon
+docker_group_members:
+  - "{{ uTower_user_username }}"
+
+# uTower-nas role
+# -------------
+# Enable NFS sharing
+uTower_nas_nfs: yes
+# Enable Windows Sharing
+uTower_nas_cifs: yes
+# Enable Mac Sharing
+uTower_nas_afp: no
+
+# sickrage role
+# -------------
+sickrage_path: /opt/sickrage
+sickrage_user: "{{ uTower_user_user }}"
+sickrage_pass: "{{ uTower_user_pass }}"
+
+# couchpotato role
+# ----------------
+couchpotato_path: /opt/couchpotato
+
+# htpc-manager role
+# -----------------
+htpc_manager_path: /opt/uTowermanager
+
+# transmission role
+# -----------------
+transmission_path: /opt/transmission
+transmission_host: http://localhost
+transmission_rpc_auth_required: true
+transmission_user: "{{ uTower_user_user }}"
+transmission_pass: "{{ uTower_user_pass }}"
+transmission_download-dir: "/downloads"
+
+# duckdns role
+# ------------
+duckdns_path: /opt/duckdns
+subdomains: "towerbox"
+token: "7997c64f-6d30-4028-b10d-69b19498cd74"
+
+# kodi-headless role
+# ------------------
+kodi_host: localhost
+kodi_host_port: 8777
+kodi_user: kodi
+kodi_pass: kodi
+
+# pushbullet_api
+# --------------
+pushbullet_api: o.PrpQQ1z7m7E7A2Qd463ZB4VlmFXxZZAd

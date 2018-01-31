@@ -8,7 +8,7 @@ docker_containers: []
 #     env:
 couchpotato_path: /opt/couchpotato
 uTower_downloads_movies: /downloads
-
+couchpotato_port: "5050"
 uTower_user_user: user
 uTower_user_pass: Pps7308
 
@@ -22,4 +22,3 @@ pushbullet_enabled: 1
 
 kodi_user: "kodi"
 kodi_pass: "kodi"
-

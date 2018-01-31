@@ -1,0 +1,4 @@
+---
+transmission_path: /opt/transmission
+transmission_port: "9091"
+downloads: /downloads

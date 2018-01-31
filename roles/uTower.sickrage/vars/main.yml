@@ -1,0 +1,7 @@
+---
+# vars file for uTower.sonarr
+sickrage_port: "8081"
+sickrage_path: /opt/sickrage
+sickrage_root_dirs: 0|/tv
+torrent_method: transmission
+torrent_path: /downloads/TV

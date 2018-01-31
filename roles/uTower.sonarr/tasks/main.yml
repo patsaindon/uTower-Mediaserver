@@ -26,15 +26,5 @@
       PUID: 1000
       PGID: 1000
 
-- pause:
-    seconds: 5
-
-- uri:
-    url: "http://{{ kodi_user }}:{{ kodi_pass }}@{{ host_ip }}:8989"
-  register: login
-
-- pushbullet:
-    api_key: "{{ pushbullet_api }}"
-    title: sonarr service is UP!
-    device: Chrome
-    body: "http://{{ host_ip }}:8989"
+- include_tasks: pushbullet.yml
+  when: pushbullet_enabled

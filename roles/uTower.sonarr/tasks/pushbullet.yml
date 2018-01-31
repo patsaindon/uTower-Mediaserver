@@ -1,0 +1,13 @@
+---
+- pause:
+    seconds: 5
+
+- uri:
+    url: "http://{{ uTower_user_user }}:{{ uTower_user_pass }}@{{ host_ip }}:{{ sonarr_port }}"
+    register: login
+
+- pushbullet:
+    api_key: "{{ pushbullet_api }}"
+    title: Sonarr web service is UP!
+    device: Chrome
+    body: "http://{ host_ip }}:{{ sonarr_port }}"

@@ -1,6 +1,6 @@
 # upgrade.yml
 ---
-- hosts: 192.168.88.133
+- hosts: all
   become: true
 
   tasks:

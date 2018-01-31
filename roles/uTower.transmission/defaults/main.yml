@@ -9,8 +9,6 @@ docker_containers: []
 uTower_user_user: user
 uTower_user_pass: Pps7308
 
-transmission_path: /opt/transmission
-
 host_ip: "{{ ansible_ens33.ipv4.address }}"
 
 uTower_downloads: "/downloads"

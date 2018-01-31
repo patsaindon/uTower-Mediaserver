@@ -2,13 +2,13 @@
 - name: Create Media Folders
   file: path={{ item }} state=directory
   with_items:
-    - /opt/kodi/.kodi/userdata/
+    - "{{ kodi_path }}.kodi/userdata/"
 
 - name: Copy advancedsettings.xml
-  template: src=advancedsettings.xml.j2 dest=/opt/kodi/.kodi/userdata/advancedsettings.xml
+  template: src=advancedsettings.xml.j2 dest="{{ kodi_path }}.kodi/userdata/advancedsettings.xml"
 
 - name: Copy advancedsettings.xml
-  template: src=sources.xml.j2 dest=/opt/kodi/.kodi/userdata/sources.xml
+  template: src=sources.xml.j2 dest="{{ kodi_path }}.kodi/userdata/sources.xml"
 
 - name: Create kodi-headless container
   docker_container:
@@ -18,7 +18,6 @@
     pull: yes
     restart_policy: always
     state: started
-    pull: yes
     volumes:
        - /opt/kodi:/config
     exposed_ports:
@@ -31,15 +30,5 @@
       PUID: 1000
       PGID: 1000
 
-- pause:
-    seconds: 5
-
-- uri:
-    url: "http://{{ kodi_user }}:{{ kodi_pass }}@{{ host_ip }}:8080"
-  register: login
-
-- pushbullet:
-    api_key: "{{ pushbullet_api }}"
-    title: kodi-headless service is UP!
-    device: Chrome
-    body: "http://{{ host_ip }}:8080"
+- include_tasks: pushbullet.yml
+  when: pushbullet_enabled

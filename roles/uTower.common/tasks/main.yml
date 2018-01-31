@@ -92,6 +92,7 @@
       - python-avahi
       - python-pip
       - git
+      - curl
 
   - name: Install avahi-aliases service
     pip: name='git+http://github.com/GR360RY/avahi-aliases' editable=false

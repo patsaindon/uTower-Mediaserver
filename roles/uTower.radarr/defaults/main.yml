@@ -4,3 +4,4 @@
 # radarr role
 # ----------------
 radarr_path: /opt/radarr
+radarr_port: "7878"

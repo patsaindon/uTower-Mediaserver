@@ -211,7 +211,7 @@ host = {{ host_ip }}:9091
 delete_files = True
 directory = {{ uTower_downloads_movies }}
 remove_complete = True
-password = {{ transmission_pass }}
+password ="{{ uTower_user_pass }}"
 
 [utorrent]
 username =
@@ -330,7 +330,7 @@ on_snatch = 0
 user_key =
 enabled = 0
 priority = 0
-api_token = 
+api_token =
 
 [script]
 path =

@@ -1,0 +1,4 @@
+# pushbullet_api
+# --------------
+duplicati_path: /opt/duplicati
+duplicati_port: "8200"

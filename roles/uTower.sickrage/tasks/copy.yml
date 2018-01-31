@@ -1,5 +1,0 @@
----
-- name: Copy Sickrage configuration
-  template:
-    src: config.ini.j2
-    dest: /opt/sickrage/config.ini

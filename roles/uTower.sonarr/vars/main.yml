@@ -1,2 +1,4 @@
 ---
 # vars file for uTower.sonarr
+sonarr_path: /opt/sonarr
+sonarr_port: "8989"

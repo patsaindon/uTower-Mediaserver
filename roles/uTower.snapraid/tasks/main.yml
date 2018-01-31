@@ -1,21 +1,16 @@
 ---
 #|  Install and configure SnapRAID
 
-- name: main - Include OS-Specific Variables
-  include_vars: '{{ item }}'
-  with_first_found:
-    - '{{ ansible_distribution }}.yml'
-    - '{{ ansible_os_family }}.yml'
-    - 'default.yml'
-  when: snapraid_enabled | bool
-  tags: [ 'snapraid', 'snapraid-install' ]
+- name: Adding SnapRAID PPA
+  apt_repository:
+    repo: ppa:tikhonov/snapraid
+    state: present
+    update_cache: yes
 
-- name: main - Install SnapRAID from source
-  include_vars:  '{{ found_item }}'
-  with_first_found:
-    - 'install/{{ snapraid_install_method }}-{{ ansible_distribution }}.yml'
-    - 'install/{{ snapraid_install_method }}-{{ ansible_os_family }}.yml'
-    - 'install/{{ snapraid_install_method }}-default.yml'
+- name: Installing SnapRAID from PPA
+  package:
+    name: snapraid
+    state: present
   when: snapraid_enabled | bool
   loop_control:
     loop_var: found_item

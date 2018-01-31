@@ -1,0 +1,6 @@
+---
+# vars file for uTower.sonarr
+kodi_port: "8080"
+kodi_user: kodi
+kodi_pass: kodi
+kodi_path: /opt/kodi/

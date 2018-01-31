@@ -2,10 +2,6 @@
 #| Set to `False` to disable the role
 snapraid_enabled: True
 
-#|
-#| Settings
-#|
-
 # Set to False to build from source... and stop
 snapraid_install: True
 
@@ -38,13 +34,12 @@ snapraid_cron_jobs: []
 snapraid_cron_host_jobs: []
 snapraid_cron_group_jobs: []
 
-
 #|
 #| Installation Options
 #|
 
 # Installs from package manager by default
-snapraid_install_from_file: False
+snapraid_install_from_file: True
 snapraid_install_from_source: False
 snapraid_install_from_docker: False
 
@@ -55,7 +50,7 @@ snapraid_install_file_name: 'snapraid-v11.1.deb'
 #| Build From Source
 
 snapraid_build_git_repo: 'https://github.com/amadvance/snapraid.git'
-snapraid_build_target_version: 'v10.0'
+snapraid_build_target_version: 'v11.1'
 snapraid_build_user: '{{ ansible_ssh_user | default("root") }}'
 snapraid_build_path: '/opt/snapraid/src'
 
