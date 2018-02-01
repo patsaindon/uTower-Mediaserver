@@ -1,7 +1,7 @@
 
 ## uTower Mediaserver
 
-uTower Mediaserver Automation with [Kodi](http://kodi.tv), [Transmission](https://transmissionbt.com/) (Bittorent), [Couchpotato](https://couchpota.to/), [Sickrage](https://sickrage.github.io/), [HTPC-Manager](https://github.com/Hellowlol/HTPC-Manager.git), [Tvheadend](https://tvheadend.org/) and many others.
+uTower Mediaserver Automation with [Kodi](http://kodi.tv), [Transmission](https://transmissionbt.com/) (Bittorent), [Couchpotato](https://couchpota.to/), [Sickrage](https://sickrage.github.io/), [HTPC-Manager](https://github.com/Hellowlol/HTPC-Manager.git) and many others.
 
 ## Overview
 
