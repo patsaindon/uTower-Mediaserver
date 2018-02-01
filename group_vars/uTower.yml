@@ -4,16 +4,17 @@ host_ip: "{{ ansible_ens33.ipv4.address }}"
 # Switches to Enable/Disable Roles
 # Base setup
 ntp_enabled: yes
-disk_enabled: no
-mergerfs_enabled: no
-common_enabled: no
-nas_enabled: no
+disk_enabled: yes
+mergerfs_enabled: yes
+common_enabled: yes
+nas_enabled: yes
 snapraid_enabled: no
-docker_enabled: no
+docker_enabled: yes
 pushbullet_enabled: no
 
 #Containers
-mariadb_enabled: no
+duckdns_enabled: no
+mariadb_enabled: yes
 couchpotato_enabled: yes
 sickrage_enabled: yes
 kodiheadless_enabled: yes
@@ -97,7 +98,7 @@ docker_group_members:
 # uTower-nas role
 # -------------
 # Enable NFS sharing ( Used by Kodi to share media )
-uTower_nas_nfs: yes
+uTower_nas_nfs: no
 # Enable Windows Sharing
 uTower_nas_cifs: yes
 # Enable Mac Sharing
@@ -127,4 +128,4 @@ token: "duckdns_token"
 
 # pushbullet_api
 # --------------
-pushbullet_api: %pushbullet_api_key%
+# pushbullet_api: %pushbullet_api_key%
