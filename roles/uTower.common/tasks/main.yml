@@ -71,7 +71,6 @@
 - name: Create Downloads Folders
   file: path={{ item }} state=directory owner={{ uTower_user_user }} group={{ uTower_user_group }} mode=0755 recurse=yes
   with_items:
-    - "{{ uTower_downloads_torrents }}"
     - "{{ uTower_downloads_tv }}"
     - "{{ uTower_downloads_movies }}"
     - "{{ uTower_downloads_incomplete }}"
