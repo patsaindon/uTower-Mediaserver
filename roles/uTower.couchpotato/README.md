@@ -4,6 +4,8 @@ An Ansible role to setup and configure Couchpotato docker container from https:/
 
 [CouchPotato](https://couchpota.to) is an automatic NZB and torrent downloader. You can keep a "movies I want" list and it will search for NZBs/torrents of these movies every X hours. Once a movie is found, it will send it to SABnzbd or download the torrent to a specified directory.
 
+[![couchpotato](https://couchpota.to/media/images/full.png)][appurl]
+
 Requirements
 ------------
 
