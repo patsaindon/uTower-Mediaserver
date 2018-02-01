@@ -6,19 +6,3 @@ docker_containers: []
 #     image: linuxserver/couchpotato
 #     published_ports: 5050:5050
 #     env:
-couchpotato_path: /opt/couchpotato
-uTower_downloads_movies: /downloads
-couchpotato_port: "5050"
-uTower_user_user: user
-uTower_user_pass: Pps7308
-
-host_ip: "{{ ansible_ens33.ipv4.address }}"
-
-transmission_user: "{{ uTower_user_user }}"
-transmission_pass: "{{ uTower_user_pass }}"
-
-pushbullet_api: o.PrpQQ1z7m7E7A2Qd463ZB4VlmFXxZZAd
-pushbullet_enabled: 1
-
-kodi_user: "kodi"
-kodi_pass: "kodi"

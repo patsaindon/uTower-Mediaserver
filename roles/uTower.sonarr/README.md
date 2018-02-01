@@ -1,6 +1,10 @@
 Sonarr
-============
+======
 An Ansible role to setup and configure Sonarr docker container from https://www.linuxserver.io client on Ubuntu 16.04 .
+
+[Sonarr](https://sonarr.tv/) (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
+
+[![sonarr](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png)][appurl]
 
 Requirements
 ------------
@@ -34,5 +38,5 @@ Example Playbook
   become: yes
 
   roles:
-    - role: uTower.transmission
+    - role: uTower.sonarr
 ```

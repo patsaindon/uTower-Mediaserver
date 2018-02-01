@@ -1,9 +1,6 @@
 uTower-common
-===========
-
-[![Build Status](https://travis-ci.org/GR360RY/ansible-role-uTower-common.svg?branch=master)](https://travis-ci.org/GR360RY/ansible-role-uTower-common) [![Galaxy](http://img.shields.io/badge/galaxy-GR360RY.uTower--common-green.svg)](https://galaxy.ansible.com/GR360RY/uTower-common/)
-
-An ansible role to perform common tasks on uTower. 
+=============
+An Ansible role to perform common tasks on uTower Media server on Ubuntu 16.04.
 
 Overview
 --------

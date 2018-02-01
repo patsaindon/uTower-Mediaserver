@@ -1,0 +1,3 @@
+---
+mariadb_path: /opt/mariadb
+mariadb_port: "3306"

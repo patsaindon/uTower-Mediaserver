@@ -1,38 +1,42 @@
-Role Name
-=========
+Radarr
+======
+An Ansible role to setup and configure Sonarr docker container from https://www.linuxserver.io client on Ubuntu 16.04 .
 
-A brief description of the role goes here.
+[Radarr][appurl] - A fork of Sonarr to work with movies à la Couchpotato. 
+
+[![radarr](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/radarr.png)][appurl]
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role requires Ansible 2.0 or higher.
+
+Overview
+--------
+
+List of tasks that will be performed under `Radarr` role:
+
+1. Create and run Radarr container
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+List of variables that can be passed to the role with default variable values.
 
-Dependencies
-------------
+```
+---
+sonarr_path: /opt/radarr
+sonarr_port: "7878"
+```
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
-----------------
+-------------------------
+```
+---
+- hosts: uTower
+  become: yes
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+  roles:
+    - role: uTower.radarr
+```
