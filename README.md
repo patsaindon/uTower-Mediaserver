@@ -158,9 +158,6 @@ cd uTower-Mediaserver
 * Create custom configuration file:
 
 ```
-cd custom
-cp custom.yml.sample custom.yml
-```
 * Open `inventory/inventory.yml` in your favorite editor and update variable values.
 * Open `group_vars/uTower.yml` in your favorite editor and update variable values.
 * Open `group_vars/kodi.yml` in your favorite editor and update variable values.
