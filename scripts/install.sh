@@ -12,7 +12,7 @@ if [ ! -d "$HOME/ansible-uTower-roles" ]; then
 else
 	echo -e "\n\033[0;32m >> ansible-uTower-roles is already available\033[0m"
 fi
-cd "$HOME/ansible-uTower-roles"
+cd "$HOME/uTower-Mediaserver"
 # echo -e "\n\033[0;32m >> Run Wizard\033[0m"
 # python scripts/wizard.py <&1
 nano group_vars/uTower.yml
