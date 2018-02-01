@@ -4,10 +4,10 @@ all:
   children:
     uTower:
       hosts:
-        192.168.88.134: # <!-- change this to the IP address of your server  -->
+        %hosts_ip%: # <!-- change this to the IP address of your server  -->
     kodi:
       hosts:
-        192.168.88.134: # <!-- change this to the IP address of your kodi client  -->
+        %hosts_ip%: # <!-- change this to the IP address of your kodi client  -->
   vars:
     ansible_connection: ssh
     ansible_ssh_user: %username% # <!-- change this to the disired ssh user name  -->
