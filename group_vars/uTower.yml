@@ -24,8 +24,8 @@ sonarr_enabled: no
 radarr_enabled: no
 
 # uTower user
-uTower_user_username: user
-uTower_user_password: Pps7308
+uTower_user_username: %username%
+uTower_user_password: %password%
 uTower_user_group: user
 uTower_user_shell: /bin/bash
 uTower_user_sudo_access: yes
@@ -118,8 +118,8 @@ uTower_nas_afp: no
 # duckdns role
 # ------------
 duckdns_path: /opt/duckdns
-subdomains: "towerbox"
-token: "7997c64f-6d30-4028-b10d-69b19498cd74"
+subdomains: "duckdns_registered_subdomains"
+token: "duckdns_token"
 
 # kodi-headless role
 # ------------------
@@ -127,4 +127,4 @@ token: "7997c64f-6d30-4028-b10d-69b19498cd74"
 
 # pushbullet_api
 # --------------
-pushbullet_api: o.PrpQQ1z7m7E7A2Qd463ZB4VlmFXxZZAd
+pushbullet_api: %pushbullet_api_key%
