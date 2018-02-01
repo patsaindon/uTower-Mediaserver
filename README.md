@@ -172,5 +172,5 @@ ansible-playbook -i inventory/inventory.yml -c local -K site.yml
 __Server Mode:__
 
 ```
-ansible-playbook -i inventory/inventory.yml -c local -K site.ymll
+ansible-playbook -i inventory/inventory.yml -c local -K site.yml
 ```
