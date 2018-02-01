@@ -150,7 +150,7 @@ sudo apt-get -y install ansible git
 
 ```
 git clone https://github.com/patsaindon/uTower-Mediaserver.git --recursive
-cd htpc-ansible
+cd uTower-Mediaserver
 ```
 
 ### Edit Configuration
@@ -169,11 +169,11 @@ cp custom.yml.sample custom.yml
 __Desktop Mode:__
 
 ```
-ansible-playbook -i inventory/server-withclient -c local -K htpc-server.yml
+ansible-playbook -i inventory/inventory.yml -c local -K site.yml
 ```
 
 __Server Mode:__
 
 ```
-ansible-playbook -i inventory/server-headless -c local -K htpc-server.yml
+ansible-playbook -i inventory/inventory.yml -c local -K site.ymll
 ```
