@@ -8,7 +8,7 @@ sudo /usr/bin/pip install -U ansible
 
 if [ ! -d "$HOME/ansible-uTower-roles" ]; then
 	echo -e  "\n\033[0;32m >> Clone  ansible-uTower-roles repository\033[0m"
-	git clone --recursive git@bitbucket.org:Patsaindon/ansible-utower-roles.git "$HOME/ansible-uTower-roles"
+	git clone --recursive git@github.com:patsaindon/uTower-Mediaserver.git "$HOME/uTower-Mediaserver"
 else
 	echo -e "\n\033[0;32m >> ansible-uTower-roles is already available\033[0m"
 fi
