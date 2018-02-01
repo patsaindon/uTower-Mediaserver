@@ -162,6 +162,7 @@ cd uTower-Mediaserver
 * Open `group_vars/uTower.yml` in your favorite editor and update variable values.
 * Open `group_vars/kodi.yml` in your favorite editor and update variable values.
 * Run Ansible Playbook from your localhost:
+```
 
 __Desktop Mode:__
 
