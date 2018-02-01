@@ -97,29 +97,24 @@ Default Credentials, Settings, Paths and URLs:
     - Default Deluge Web password will be set to `user_pass`
     - `tv` and `movie` labels will be configured.
 
+* __Mariadb__
 
-* __Sabnzbd__
-
-    - Sabnzbdplus will be configured to listen on port __9000__
-    - Usenet setup will remain to be completed through configuration wizard
-    - `movies` and `tv` categories will be configured
-    - `nzbtomedia` postprocessing scripts will be configured for each category
-
+    - Mariadb will be configured to listen on port __3306__
+    - If kodi-headless role is enabled, it will create a blank KODI database
+    - `root` password will be setup as set in the container creation
 
 * __Sickrage__
 
     - Will be configured to listen on port __8081__
-    - Deluge will be configured as download client
+    - Transmission will be configured as download client
     - In "Search Providers", torrent trackers that do not require credentials will be configured
-    - Sabnzbd will be configured as download client, but no Usenet "Search Providers" will be defined
     - Sickrage will sent "Rescan Library" command to Kodi on complete downloads
 
 * __Couchpotato__
 
     - Will be configured to listen on port __5050__
-    - Deluge will be configured as download client
+    - Transmission will be configured as download client
     - In "Searcher", torrent trackers that do not require credentials will be configured
-    - Sabnzbd will be configured as download client, but no Usenet "Searcher" will be defined
     - Couchpotato will sent "Rescan Library" command to Kodi on complete downloads
 
 * __HtpcManager__
@@ -128,6 +123,17 @@ Default Credentials, Settings, Paths and URLs:
     - Apache reverse proxy will be configured to serve HtpcManager on port 80
     - HtpcManager will be configured to listen on port __8085__
 
+* __Duplicati__
+
+    - Duplicati will be configured to listen on port __8200__    
+
+* __Radarr__
+
+    - HtpcManager will be configured to listen on port __7878__
+
+* __Sonarr__
+
+    - HtpcManager will be configured to listen on port __8989__    
 
 ## Customizing the setup
 

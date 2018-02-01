@@ -4,6 +4,9 @@ An Ansible role to setup and configure MergerFS from https://github.com/trapexit
 
 Requirements
 ------------
+```
+2 or more data disks
+```
 
 This role requires Ansible 2.0 or higher.
 
@@ -12,14 +15,13 @@ Overview
 
 List of tasks that will be performed under `MergerFS` role:
 
-1. Create and run MergerFS
+1. Install and configure MergerFS
 2. Edit the /etc/fstab to merge all selected drives to a drive pool
 
 Role Variables
 --------------
 
 List of variables that can be passed to the role with default variable values.
-
 ```
 ---
 mergerfs_version: 2.23.1
@@ -30,7 +32,6 @@ Dependencies
 ------------
 
 * Installs the required packages
-
 ```
 - fuse
 - xfsprogs
@@ -43,5 +44,5 @@ Example Playbook
   become: yes
 
   roles:
-    - role: uTower.transmission
+    - role: uTower.mergerfs
 ```

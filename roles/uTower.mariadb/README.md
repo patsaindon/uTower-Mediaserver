@@ -16,8 +16,8 @@ Overview
 
 List of tasks that will be performed under `mariadb` role:
 
-1. Create and run Transmission container
-2. Apply template for settings.json in /opt/transmission
+1. Create and run Mariadb container
+2. Apply `root` password as specified in container parameters
 
 Role Variables
 --------------
@@ -26,9 +26,9 @@ List of variables that can be passed to the role with default variable values.
 
 ```
 ---
-transmission_path: /opt/transmission
-transmission_port: "9091"
-downloads: /downloads
+mariadb_path: /opt/mariadb
+mariadb_port: "3306"
+
 ```
 
 Dependencies
@@ -37,11 +37,8 @@ Dependencies
 * `uTower.common` role. Creates user and media folders
 
 ```
-# defaults file for uTower.common
+# defaults file for uTower.mariadb
 
-uTower_downloads_incomplete
-uTower_user_user
-uTower_user_password
 ```
 
 Example Playbook
@@ -52,5 +49,5 @@ Example Playbook
   become: yes
 
   roles:
-    - role: uTower.transmission
+    - role: uTower.mariadb
 ```
