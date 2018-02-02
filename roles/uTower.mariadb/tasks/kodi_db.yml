@@ -9,18 +9,3 @@
 - shell: bash "{{ mariadb_path }}/create-mysql.sh"
   args:
     executable: /bin/bash
-
-- copy:
-    src: MyVideos107.sql
-    dest: "{{ mariadb_path }}/MyVideos107.sql"
-    owner: user
-
-- name: Restore database
-  mysql_db:
-    config_file: "{{ mariadb_path }}/custom.cnf"
-    login_host: "{{ host_ip  }}"
-    login_user: root
-    login_password: kodi
-    name: all
-    state: import
-    target: "{{ mariadb_path }}/MyVideos107.sql"
