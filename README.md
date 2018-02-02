@@ -146,7 +146,7 @@ Default Credentials, Settings, Paths and URLs:
 ### Install Requirements
 
 ```    
-sudo apt-get install software-properties-common
+sudo apt -y install software-properties-common
 sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get -y install ansible git
@@ -157,6 +157,7 @@ sudo apt-get -y install ansible git
 ```
 git clone https://github.com/patsaindon/uTower-Mediaserver.git --recursive
 cd uTower-Mediaserver
+bash scripts/install.sh
 ```
 
 ### Edit Configuration
