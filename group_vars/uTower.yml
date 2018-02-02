@@ -1,6 +1,14 @@
 ---
 # Modify lines were defaults that need to be changed.
+
+# uTower user
+uTower_user_username: %username%
+uTower_user_password: %password%
+uTower_user_group: user
+uTower_user_shell: /bin/bash
+uTower_user_sudo_access: yes
 host_ip: "{{ ansible_ens33.ipv4.address }}"
+
 # Switches to Enable/Disable Roles
 # Base setup
 ntp_enabled: yes
@@ -24,12 +32,9 @@ htpc_manager_enabled: yes
 sonarr_enabled: no
 radarr_enabled: no
 
-# uTower user
-uTower_user_username: %username%
-uTower_user_password: %password%
-uTower_user_group: user
-uTower_user_shell: /bin/bash
-uTower_user_sudo_access: yes
+# pushbullet_api_key
+# ------------------
+# pushbullet_api: %pushbullet_api_key%
 
 # mergerfs role
 #--------------
@@ -103,29 +108,3 @@ uTower_nas_nfs: no
 uTower_nas_cifs: yes
 # Enable Mac Sharing
 uTower_nas_afp: no
-
-# sickrage role
-# -------------
-
-# couchpotato role
-# ----------------
-
-# htpc-manager role
-# -----------------
-
-# transmission role
-# -----------------
-
-# duckdns role
-# ------------
-duckdns_path: /opt/duckdns
-subdomains: "duckdns_registered_subdomains"
-token: "duckdns_token"
-
-# kodi-headless role
-# ------------------
-
-
-# pushbullet_api
-# --------------
-# pushbullet_api: %pushbullet_api_key%
