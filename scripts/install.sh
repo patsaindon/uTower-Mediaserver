@@ -1,11 +1,7 @@
 echo -e "\n\033[0;32m >> Install Requirements\033[0m"
 sudo apt-get -y update 2>&1 >/dev/null
-sudo apt-get -y upgrade 2>&1 >/dev/null
-sudo /usr/bin/apt-get -y install python-pip git software-properties-common
+sudo /usr/bin/apt-get -y install python-pip ansible git software-properties-common
 sudo /usr/bin/pip install --upgrade pip
-# sudo /usr/bin/pip install -U ansible prompter
-sudo /usr/bin/pip install -U ansible
-
 
 if [ ! -d "$HOME/ansible-uTower-roles" ]; then
 	echo -e  "\n\033[0;32m >> Clone  ansible-uTower-roles repository\033[0m"
