@@ -21,18 +21,22 @@
         login_user: root
         login_password: "{{ vault_root_passwd }}"
       with_items: "{{ dblist.stdout_lines | difference(exclude_db) }}"
-      
-- name: List docker containers
-  shell: "docker start {{ item }}"
-  register: docker_containers
-  args:
-    executable: /bin/bash
-  become: true
-  with_items:
-      - couchpotato
-      - kodi-headless
-      - mariadb
-      - sickrage
-      - transmission
-      - htpcmanager
+
+- name: stop containers
+    vars:
+    - exclude_containers:
+      - "duplicati"
+  tasks:      
+    - name: List docker containers
+      shell: "docker ps -a -q"
+      register: docker_containers
+      args:
+      executable: /bin/bash
+      become: true
+    - name: stop docker registered containers
+      shell: "docker stop {{ item }}"
+      args:
+      executable: /bin/bash
+      become: true
+
 
