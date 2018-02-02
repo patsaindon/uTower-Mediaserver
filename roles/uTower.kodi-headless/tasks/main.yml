@@ -21,8 +21,8 @@
     volumes:
        - /opt/kodi:/config
     exposed_ports:
-      - "8777"
-      - "9777/udp"
+      - 8777
+      - 9777/udp
     published_ports:
        - "8777:8080"
        - "9777:9777/udp"
