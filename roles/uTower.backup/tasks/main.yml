@@ -1,4 +1,27 @@
 ---
+---
+# This playbook backups all mysql databases into separate files.
+
+- name: backup mysql
+  vars:
+    - exclude_db:
+      - "Database"
+      - "information_schema"
+      - "performance_schema"
+      - "mysql"
+  tasks:
+    - name: get db names
+      shell: 'mysql -u root -p{{ vault_root_passwd }} -e "show databases;" '
+      register: dblist
+    - name: backup databases
+      mysql_db:
+        state: dump
+        name: "{{ item }}"
+        target: "/tmp/{{ item }}.sql"
+        login_user: root
+        login_password: "{{ vault_root_passwd }}"
+      with_items: "{{ dblist.stdout_lines | difference(exclude_db) }}"
+      
 - name: List docker containers
   shell: "docker start {{ item }}"
   register: docker_containers
