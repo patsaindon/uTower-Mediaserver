@@ -103,7 +103,7 @@ uTower_resolving: zeroconf
 # Helper variable. In use by other roles
 # When installed with docker role, make sure uTower user can access the docker daemon
 docker_group_members:
-  - "{{ uTower_user_username }}"
+  - "{{ uTower_user_user }}"
 
 # uTower-nas role
 # -------------
