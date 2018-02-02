@@ -18,4 +18,4 @@ nano group_vars/uTower.yml
 nano inventory/inventory.yml
 nano site.yml
 echo -e "\n\033[0;32m >> Installing ...\033[0m"
-ansible-playbook -i inventory/inventory.yml -c local -K site.yml
+ansible-playbook -i inventory/inventory.yml -c local -b -K site.yml
