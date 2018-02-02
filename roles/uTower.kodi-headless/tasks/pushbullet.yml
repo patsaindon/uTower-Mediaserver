@@ -1,6 +1,6 @@
 ---
 - pause:
-    seconds: 5
+    seconds: 8
 
 - uri:
     url: "http://{{ kodi_user }}:{{ kodi_pass }}@{{ host_ip }}:{{ kodi_port }}"
