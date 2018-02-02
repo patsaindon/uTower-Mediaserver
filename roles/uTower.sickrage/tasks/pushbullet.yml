@@ -1,6 +1,6 @@
 ---
 - pause:
-    seconds: 10
+    seconds: 8
 
 - uri:
     url: "http://{{ uTower_user_user }}:{{ uTower_user_pass }}@{{ host_ip }}:{{ sickrage_port }}"
