@@ -1,6 +1,6 @@
 ---
 - pause:
-    seconds: 5
+    seconds: 8
 
 - uri:
     url: "http://{{ uTower_user_user }}:{{ uTower_user_pass }}@{{ host_ip }}:{{ htpcmanager_port }}"
