@@ -29,7 +29,7 @@ Login to your Ubuntu 16.04 machine using gui or console. Run __ONE__ of the belo
 __Desktop Mode:__
 
 ```
-sudo apt install git sshpass -y
+sudo apt -y install git 
 git clone https://github.com/patsaindon/uTower-Mediaserver
 cd uTower-Mediaserver
 bash scripts/install.sh
@@ -38,7 +38,7 @@ bash scripts/install.sh
 __Server Mode:__
 
 ```
-sudo apt install git sshpass -y
+sudo apt -y install git 
 git clone https://github.com/patsaindon/uTower-Mediaserver
 cd uTower-Mediaserver
 bash scripts/install.sh
