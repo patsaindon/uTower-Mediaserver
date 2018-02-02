@@ -4,10 +4,10 @@
   with_items:
     - "{{ kodi_path }}.kodi/userdata/"
 
-- name: Copy advancedsettings.xml
+- name: Create advancedsettings.xml from template
   template: src=advancedsettings.xml.j2 dest="{{ kodi_path }}.kodi/userdata/advancedsettings.xml"
 
-- name: Copy advancedsettings.xml
+- name: Create sources.xml from template
   template: src=sources.xml.j2 dest="{{ kodi_path }}.kodi/userdata/sources.xml"
 
 - name: Create kodi-headless container
