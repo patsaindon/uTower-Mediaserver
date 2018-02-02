@@ -8,7 +8,3 @@ all:
     kodi:
       hosts:
         localhost: # <!-- change this to the IP address of your kodi client  -->
-  vars:
-    ansible_connection: ssh
-    ansible_ssh_user: %username% # <!-- change this to the disired ssh user name  -->
-    ansible_ssh_pass: %password% # <!-- change this to the desired ssh password  -->
