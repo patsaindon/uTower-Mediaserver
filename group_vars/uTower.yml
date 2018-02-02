@@ -40,6 +40,7 @@ radarr_enabled: no
 # ---------
 kodi_user: kodi
 kodi_pass: kodi
+
 # mergerfs role
 #--------------
 mergerfs_version: 2.23.1
