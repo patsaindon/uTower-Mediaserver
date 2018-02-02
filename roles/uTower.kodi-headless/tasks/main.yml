@@ -24,7 +24,7 @@
       - 8777
       - 9777/udp
     published_ports:
-       - "8777:8080"
+       - "8080:8777"
        - "9777:9777/udp"
     env:
       TZ: America/Toronto # offset = -05:00 / DST -04:00
