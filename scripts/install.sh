@@ -14,7 +14,9 @@ fi
 cd "$HOME/uTower-Mediaserver"
 # echo -e "\n\033[0;32m >> Run Wizard\033[0m"
 # python scripts/wizard.py <&1
+cp group_vars/uTower.tmp group_vars/uTower.yml
 nano group_vars/uTower.yml
+cp inventory/inventory.tmp inventory/inventory.yml
 nano inventory/inventory.yml
 nano site.yml
 echo -e "\n\033[0;32m >> Installing ...\033[0m"
