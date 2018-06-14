@@ -1,0 +1,7 @@
+---
+# defaults file for uTower.radarr
+
+# radarr role
+# ----------------
+radarr_path: /opt/lidarr
+radarr_port: "8686"

@@ -1,0 +1,30 @@
+---
+# tasks file for uTower.radarr
+- name: Create radarr Folder
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ lidarr_path  }}"
+
+- name: Create radarr container
+  docker_container:
+    name: radarr
+    image: linuxserver/lidarr
+    network_mode: host
+    restart_policy: always
+    state: started
+    pull: yes
+    volumes:
+       - /opt/lidarr:/config
+       - /mnt/data/downloads/music:/downloads
+       - /mnt/data/music:/movies
+    exposed_ports:
+      - 8686
+    published_ports:
+      - "8686:8686"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+
+- include_tasks: pushbullet.yml
+  when: pushbullet_enabled

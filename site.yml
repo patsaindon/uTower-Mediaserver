@@ -22,3 +22,4 @@
     - { role:  uTower.htpcmanager, when: htpc_manager_enabled }
     - { role:  uTower.sonarr, when: sonarr_enabled }
     - { role:  uTower.radarr, when: radarr_enabled }
+    - { role:  uTower.lidarr, when: lidarr_enabled }
