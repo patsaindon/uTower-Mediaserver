@@ -31,6 +31,7 @@ duplicati_enabled: yes
 htpc_manager_enabled: yes
 sonarr_enabled: no
 radarr_enabled: no
+madsonic_enabled: yes
 
 # pushbullet_api_key
 # ------------------
