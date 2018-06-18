@@ -3,5 +3,5 @@
 
 # radarr role
 # ----------------
-radarr_path: /opt/lidarr
+lidarr_path: /opt/lidarr
 radarr_port: "8686"
