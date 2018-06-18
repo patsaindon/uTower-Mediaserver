@@ -1,0 +1,29 @@
+---
+- name: Create transmission Folder
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ madsonic_path }}"
+
+- name: Create Madsonic container
+  docker_container:
+    name: madsonic
+    network_mode: host
+    restart_policy: always
+    state: started
+    pull: yes
+    volumes:
+       - /opt/madsonic:/config
+       - /mnt/data/music:/music
+    exposed_ports:
+      - 4040
+      - 4050
+    published_ports:
+      - "4040:4040"
+      - "4050:4050"
+    env:
+      TZ: America/Toronto # offset = -05:00 / DST -04:00
+      PUID: 1000
+      PGID: 1000
+
+- include_tasks: pushbullet.yml
+  when: pushbullet_enabled
