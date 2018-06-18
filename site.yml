@@ -23,3 +23,4 @@
     - { role:  uTower.sonarr, when: sonarr_enabled }
     - { role:  uTower.radarr, when: radarr_enabled }
     - { role:  uTower.lidarr, when: lidarr_enabled }
+    - { role:  uTower.madsonic, when: madsonic_enabled }
